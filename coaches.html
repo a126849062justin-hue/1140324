@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HCF 戰鬥指揮官 | 沉浸式教練陣容</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Noto Sans TC"', 'sans-serif'], serif: ['"Cormorant Garamond"', 'serif'] },
+                    colors: { brand: { bg: '#050505', text: '#f5f5f7', muted: '#9ca3af', red: '#E63946' } }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #050505; color: #f5f5f7; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        
+        @media (min-width: 768px) {
+            body, a, button { cursor: none !important; }
+            .custom-cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: #E63946; border-radius: 50%; z-index: 10000; pointer-events: none; transition: width 0.2s ease, height 0.2s ease; will-change: transform; }
+            .custom-cursor-ring { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid rgba(230,57,70,0.5); border-radius: 50%; z-index: 9999; pointer-events: none; transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease; will-change: transform; }
+            body.hovering .custom-cursor-dot { width: 0; height: 0; }
+            body.hovering .custom-cursor-ring { width: 50px; height: 50px; border-color: #E63946; background: rgba(230,57,70,0.1); backdrop-filter: blur(2px); }
+        }
+
+        .coach-img { 
+            opacity: 0; 
+            transition: opacity 0.8s ease-in-out, transform 3s ease-out; 
+            transform: scale(1.1); 
+            will-change: opacity, transform;
+            filter: grayscale(30%) brightness(0.6);
+        }
+        .coach-img.active { 
+            opacity: 1; 
+            transform: scale(1); 
+            filter: grayscale(0%) brightness(0.8);
+        }
+        
+        .text-mask-left { background: linear-gradient(to top, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.7) 40%, transparent 100%); }
+        @media (min-width: 768px) {
+            .text-mask-left { background: linear-gradient(to right, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 40%, transparent 100%); }
+            .text-mask-right { background: linear-gradient(to left, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 40%, transparent 100%); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-red selection:text-white">
+
+    <div class="custom-cursor-dot hidden md:block" id="cursor-dot"></div>
+    <div class="custom-cursor-ring hidden md:block" id="cursor-ring"></div>
+
+    <nav class="fixed w-full z-[80] transition-all duration-500 py-6 px-6 md:px-12 flex justify-between items-center pointer-events-none">
+        <a href="index.html" class="text-2xl md:text-3xl font-black tracking-[0.2em] uppercase flex items-baseline text-white pointer-events-auto interactive-el mix-blend-difference">
+            HCF<span class="text-brand-red text-4xl leading-[0.5] block">.</span>
+        </a>
+        <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="pointer-events-auto text-xs tracking-[0.2em] bg-brand-red text-white px-6 py-3 font-bold hover:bg-white hover:text-black transition-colors duration-300 interactive-el magnetic-btn shadow-[0_0_20px_rgba(230,57,70,0.5)]">
+            預約覺醒
+        </a>
+    </nav>
+
+    <section class="w-full h-[100dvh] flex flex-col justify-center items-center bg-black text-center px-6 relative z-10">
+        <p class="text-brand-red text-xs md:text-sm tracking-[0.4em] font-mono font-bold mb-6 animate-pulse">SELECT YOUR COMMANDER</p>
+        <h1 class="text-5xl md:text-8xl font-black tracking-widest text-white uppercase mb-8">
+            頂級戰力名冊
+        </h1>
+        <p class="text-sm md:text-base text-brand-muted tracking-widest max-w-2xl leading-loose font-light">
+            把身體交給連擂台都沒上過的教練，是對自己的不負責。<br>在這裡，只有從鮮血與勝利中走出來的現役戰士。
+        </p>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
+            <span class="text-[10px] font-mono tracking-[0.3em] text-brand-muted">SCROLL TO UNLOCK</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-brand-red to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Coach 1: 黃謙和 (總教練) - 左對齊 -->
+    <section class="coach-section relative w-full h-[500vh] bg-black">
+        <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="coach_huang_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
+                <img src="coach_huang_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_huang_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_huang_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_huang_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 z-10 text-mask-left"></div>
+            <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center px-6 pb-24 md:pb-0 md:pl-24 max-w-7xl mx-auto">
+                <div class="max-w-xl">
+                    <span class="text-brand-red text-[10px] font-mono tracking-[0.3em] border border-brand-red px-3 py-1 mb-6 inline-block font-bold">HEAD COACH / 總教練</span>
+                    <h2 class="text-5xl md:text-8xl font-black text-white tracking-widest mb-2">黃謙和</h2>
+                    <p class="text-lg md:text-2xl font-serif italic text-brand-muted mb-8 tracking-widest">「格鬥鋼鐵人」</p>
+                    <div class="space-y-6 text-sm text-gray-300 leading-relaxed tracking-wider">
+                        <p class="text-xl text-white font-bold border-l-4 border-brand-red pl-4">「我的教學沒有空話，只有 42 場勝利累積出的真理。」</p>
+                        <p>這副身體經歷過無數次擂台的重擊與考驗，依然屹立不搖。精通泰拳、踢拳、散打、MMA，擁有從台灣一路打進泰國、韓國、越南職業賽的資歷。</p>
+                        <ul class="border-t border-white/10 pt-6 space-y-3 font-mono text-xs">
+                            <li><strong class="text-brand-red mr-2">戰績</strong> 42 勝 12 敗</li>
+                            <li><strong class="text-brand-red mr-2">泰拳</strong> WBC 冠軍級別膝肘破壞力</li>
+                            <li><strong class="text-brand-red mr-2">散打</strong> 全國冠軍等級接腿摔技</li>
+                            <li><strong class="text-brand-red mr-2">榮耀</strong> MAX FC 越南站冠軍 / WOTD 雙料優勝</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute right-6 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-3">
+                <div class="progress-dot w-2 h-16 bg-brand-red transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coach 2: Allen (踢拳) - 右對齊 -->
+    <section class="coach-section relative w-full h-[500vh] bg-black">
+        <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="coach_allen_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
+                <img src="coach_allen_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_allen_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_allen_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_allen_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 z-10 text-mask-left md:text-mask-right"></div>
+            <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center items-end px-6 pb-24 md:pb-0 md:pr-24 max-w-7xl mx-auto text-left md:text-right">
+                <div class="max-w-xl">
+                    <span class="text-brand-text text-[10px] font-mono tracking-[0.3em] border border-brand-text px-3 py-1 mb-6 inline-block font-bold bg-black/50">KICKBOXING / 踢拳</span>
+                    <h2 class="text-5xl md:text-8xl font-black text-white tracking-widest mb-2">Allen</h2>
+                    <p class="text-lg md:text-2xl font-serif italic text-brand-muted mb-8 tracking-widest">「竹科戰神」</p>
+                    <div class="space-y-6 text-sm text-gray-300 leading-relaxed tracking-wider">
+                        <p class="text-xl text-white font-bold border-l-4 md:border-l-0 md:border-r-4 border-brand-red pl-4 md:pl-0 md:pr-4">「寫程式講求邏輯，格鬥也是。讓我幫你 Debug 你的發力結構。」</p>
+                        <p>具備竹科工程師與散打社社長雙重身份。將「Debug」的精準思維帶入教學，格鬥不是蠻力，而是物理學與人體工學的極致展現。</p>
+                        <ul class="border-t border-white/10 pt-6 space-y-3 font-mono text-xs flex flex-col md:items-end">
+                            <li>動作精密拆解 <strong class="text-brand-red ml-2 hidden md:inline">專長</strong><strong class="text-brand-red mr-2 md:hidden">專長</strong></li>
+                            <li>戰術邏輯思維建立 <strong class="text-brand-red ml-2 hidden md:inline">核心</strong><strong class="text-brand-red mr-2 md:hidden">核心</strong></li>
+                            <li>零基礎高速建立肌肉記憶 <strong class="text-brand-red ml-2 hidden md:inline">系統</strong><strong class="text-brand-red mr-2 md:hidden">系統</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute left-6 md:left-auto md:right-6 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-3">
+                <div class="progress-dot w-2 h-16 bg-brand-red transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coach 3: 鄭豫 (散打) - 左對齊 -->
+    <section class="coach-section relative w-full h-[500vh] bg-black">
+        <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="coach_cheng_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
+                <img src="coach_cheng_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_cheng_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_cheng_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_cheng_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 z-10 text-mask-left"></div>
+            <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center px-6 pb-24 md:pb-0 md:pl-24 max-w-7xl mx-auto">
+                <div class="max-w-xl">
+                    <span class="text-brand-text text-[10px] font-mono tracking-[0.3em] border border-brand-text px-3 py-1 mb-6 inline-block font-bold bg-black/50">SANDA / 散打</span>
+                    <h2 class="text-5xl md:text-8xl font-black text-white tracking-widest mb-2">鄭豫</h2>
+                    <p class="text-lg md:text-2xl font-serif italic text-brand-muted mb-8 tracking-widest">「重型坦克」</p>
+                    <div class="space-y-6 text-sm text-gray-300 leading-relaxed tracking-wider">
+                        <p class="text-xl text-white font-bold border-l-4 border-brand-red pl-4">「我不拘泥於門派。我教的，是能保護自己、真正學以致用的全方位攻防。」</p>
+                        <p>擁有布農族天生的爆發力與超乎常人的紀律。極少數能將「詠春拳」近身短打完美融合「散打」遠距離重擊的實戰派。</p>
+                        <ul class="border-t border-white/10 pt-6 space-y-3 font-mono text-xs">
+                            <li><strong class="text-brand-red mr-2">量級</strong> 80kg+ 絕對霸主</li>
+                            <li><strong class="text-brand-red mr-2">絕技</strong> 遠踢近打貼身摔</li>
+                            <li><strong class="text-brand-red mr-2">榮耀</strong> 世界南少林詠春大賽 85kg 冠軍 / T1 踢拳之王</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute right-6 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-3">
+                <div class="progress-dot w-2 h-16 bg-brand-red transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coach 4: 高大可 (泰拳) - 右對齊 -->
+    <section class="coach-section relative w-full h-[500vh] bg-black">
+        <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="coach_kao_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
+                <img src="coach_kao_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_kao_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_kao_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_kao_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 z-10 text-mask-left md:text-mask-right"></div>
+            <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center items-end px-6 pb-24 md:pb-0 md:pr-24 max-w-7xl mx-auto text-left md:text-right">
+                <div class="max-w-xl">
+                    <span class="text-brand-text text-[10px] font-mono tracking-[0.3em] border border-brand-text px-3 py-1 mb-6 inline-block font-bold bg-black/50">MUAY THAI / 泰拳</span>
+                    <h2 class="text-5xl md:text-8xl font-black text-white tracking-widest mb-2">高大可</h2>
+                    <p class="text-lg md:text-2xl font-serif italic text-brand-muted mb-8 tracking-widest">「逆襲狂人」</p>
+                    <div class="space-y-6 text-sm text-gray-300 leading-relaxed tracking-wider">
+                        <p class="text-xl text-white font-bold border-l-4 md:border-l-0 md:border-r-4 border-brand-red pl-4 md:pl-0 md:pr-4">「秩序源於能敲斷霸凌者鼻樑的實力。」</p>
+                        <p>一年內從 104 公斤的上班族蛻變成 74 公斤並站上擂台奪勝的傳說。他證明了「只要開始，永遠不嫌晚」。</p>
+                        <ul class="border-t border-white/10 pt-6 space-y-3 font-mono text-xs flex flex-col md:items-end">
+                            <li>一年內狂減 30KG (104➔74) <strong class="text-brand-red ml-2 hidden md:inline">蛻變</strong><strong class="text-brand-red mr-2 md:hidden">蛻變</strong></li>
+                            <li>立青泰拳精英挑戰賽優勝 <strong class="text-brand-red ml-2 hidden md:inline">榮耀</strong><strong class="text-brand-red mr-2 md:hidden">榮耀</strong></li>
+                            <li>享受合法揍人的快感 <strong class="text-brand-red ml-2 hidden md:inline">核心</strong><strong class="text-brand-red mr-2 md:hidden">核心</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute left-6 md:left-auto md:right-6 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-3">
+                <div class="progress-dot w-2 h-16 bg-brand-red transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coach 5: 胡脩誠 (鐵血戰神) - 左對齊 -->
+    <section class="coach-section relative w-full h-[500vh] bg-black">
+        <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="coach_hu_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
+                <img src="coach_hu_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_hu_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_hu_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_hu_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 z-10 text-mask-left"></div>
+            <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center px-6 pb-24 md:pb-0 md:pl-24 max-w-7xl mx-auto">
+                <div class="max-w-xl">
+                    <span class="text-brand-muted text-[10px] font-mono tracking-[0.3em] border border-brand-muted px-3 py-1 mb-6 inline-block font-bold bg-black/50">ASST. COACH / 鐵血戰神</span>
+                    <h2 class="text-5xl md:text-8xl font-black text-white tracking-widest mb-2">胡脩誠</h2>
+                    <p class="text-lg md:text-2xl font-serif italic text-brand-muted mb-8 tracking-widest">「臨火無懼」</p>
+                    <div class="space-y-6 text-sm text-gray-300 leading-relaxed tracking-wider">
+                        <p class="text-xl text-white font-bold border-l-4 border-brand-red pl-4">「想學會怎麼破壞，先學會怎麼保護。」</p>
+                        <p>擂台下是守護生命的打火英雄，擂台上是對手眼中的夢魘。兼具重砲力量與輕量級速度，擁有無數次實戰打磨出的「黃金比例」戰士身材。</p>
+                        <ul class="border-t border-white/10 pt-6 space-y-3 font-mono text-xs">
+                            <li><strong class="text-brand-red mr-2">宰制</strong> 75 公斤級絕對統治力</li>
+                            <li><strong class="text-brand-red mr-2">榮耀</strong> WOTD-09 鐵籠搏擊 優勝 / Rise Nova 冠軍</li>
+                            <li><strong class="text-brand-red mr-2">常勝</strong> T1 積分賽常勝軍 / 踢拳之王挑戰組優勝</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute right-6 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-3">
+                <div class="progress-dot w-2 h-16 bg-brand-red transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coach 6: 小米 (女子格鬥) - 右對齊 -->
+    <section class="coach-section relative w-full h-[500vh] bg-black">
+        <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="coach_mimi_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
+                <img src="coach_mimi_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_mimi_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_mimi_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_mimi_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 z-10 text-mask-left md:text-mask-right"></div>
+            <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center items-end px-6 pb-24 md:pb-0 md:pr-24 max-w-7xl mx-auto text-left md:text-right">
+                <div class="max-w-xl">
+                    <span class="text-brand-muted text-[10px] font-mono tracking-[0.3em] border border-brand-muted px-3 py-1 mb-6 inline-block font-bold bg-black/50">ASST. COACH / 女子格鬥</span>
+                    <h2 class="text-5xl md:text-8xl font-black text-white tracking-widest mb-2">小米</h2>
+                    <p class="text-lg md:text-2xl font-serif italic text-brand-muted mb-8 tracking-widest">「重生女鬥士」</p>
+                    <div class="space-y-6 text-sm text-gray-300 leading-relaxed tracking-wider">
+                        <p class="text-xl text-white font-bold border-l-4 md:border-l-0 md:border-r-4 border-brand-red pl-4 md:pl-0 md:pr-4">「天賦只是輔助，堅持才能成為贏家。擂台，是我對抗深淵的唯一解藥。」</p>
+                        <p>27歲才踏入擂台克服重度憂鬱症，化繭成蝶。不靠身高優勢，專注磨練極具壓迫感的近身重拳重腿。</p>
+                        <ul class="border-t border-white/10 pt-6 space-y-3 font-mono text-xs flex flex-col md:items-end">
+                            <li>114桃園市長盃泰國拳 48kg 冠軍 <strong class="text-brand-red ml-2 hidden md:inline">金牌</strong><strong class="text-brand-red mr-2 md:hidden">金牌</strong></li>
+                            <li>T1踢拳 50kg 挑戰組 勝出 <strong class="text-brand-red ml-2 hidden md:inline">戰績</strong><strong class="text-brand-red mr-2 md:hidden">戰績</strong></li>
+                            <li>第六屆泰威 交流賽 勝出 <strong class="text-brand-red ml-2 hidden md:inline">戰績</strong><strong class="text-brand-red mr-2 md:hidden">戰績</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute left-6 md:left-auto md:right-6 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-3">
+                <div class="progress-dot w-2 h-16 bg-brand-red transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div><div class="progress-dot w-2 h-2 bg-white/20 transition-all duration-300"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Bottom -->
+    <section class="py-32 bg-black border-t border-white/10 text-center relative z-20">
+        <h2 class="text-3xl md:text-5xl font-black text-white tracking-widest mb-8">選擇你的指揮官。</h2>
+        <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="inline-block px-12 py-5 bg-brand-red text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all duration-300 shadow-[0_10px_30px_rgba(230,57,70,0.4)] interactive-el magnetic-btn">立刻預約覺醒</a>
+    </section>
+
+    <script>
+        // 游標邏輯
+        if (window.matchMedia("(pointer: fine)").matches) {
+            const cursorDot = document.getElementById('cursor-dot'), cursorRing = document.getElementById('cursor-ring');
+            let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
+            let dotX = mouseX, dotY = mouseY, ringX = mouseX, ringY = mouseY;
+            
+            window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; }, { passive: true });
+            function animateCursor() {
+                dotX += (mouseX - dotX) * 0.4; dotY += (mouseY - dotY) * 0.4;
+                ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15;
+                cursorDot.style.transform = `translate3d(calc(${dotX}px - 50%), calc(${dotY}px - 50%), 0)`;
+                cursorRing.style.transform = `translate3d(calc(${ringX}px - 50%), calc(${ringY}px - 50%), 0)`;
+                requestAnimationFrame(animateCursor);
+            }
+            requestAnimationFrame(animateCursor);
+            
+            document.querySelectorAll('.interactive-el').forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+            document.querySelectorAll('.magnetic-btn').forEach(btn => {
+                btn.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width/2; const y = e.clientY - rect.top - rect.height/2;
+                    this.style.transform = `translate3d(${x*0.3}px, ${y*0.3}px, 0)`;
+                });
+                btn.addEventListener('mouseleave', function() { this.style.transform = 'translate3d(0px, 0px, 0)'; });
+            });
+        }
+
+        // 沉浸式滾動照片替換邏輯 
+        const coachSections = document.querySelectorAll('.coach-section');
+
+        function handleScroll() {
+            coachSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                if (rect.top <= windowHeight && rect.bottom >= 0) {
+                    let progress = Math.abs(Math.min(0, rect.top)) / (rect.height - windowHeight);
+                    progress = Math.max(0, Math.min(1, progress)); 
+
+                    let activeIndex = Math.floor(progress * 5);
+                    if (activeIndex >= 5) activeIndex = 4; 
+
+                    const imgs = section.querySelectorAll('.coach-img');
+                    const dots = section.querySelectorAll('.progress-dot');
+
+                    imgs.forEach((img, index) => {
+                        if (index === activeIndex) {
+                            img.classList.add('active');
+                        } else {
+                            img.classList.remove('active');
+                        }
+                    });
+
+                    dots.forEach((dot, index) => {
+                        if (index === activeIndex) {
+                            dot.style.height = '4rem'; 
+                            dot.style.backgroundColor = '#E63946';
+                        } else {
+                            dot.style.height = '0.5rem'; 
+                            dot.style.backgroundColor = 'rgba(255,255,255,0.2)';
+                        }
+                    });
+                }
+            });
+            requestAnimationFrame(handleScroll);
+        }
+        
+        requestAnimationFrame(handleScroll);
+    </script>
+</body>
+</html>
