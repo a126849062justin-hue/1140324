@@ -2,9 +2,13 @@
 <html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HCF | 覺醒你的戰鬥 DNA</title>
     <meta name="description" content="新竹頂級格鬥基地。從體態雕塑到防身實戰，為你打造專屬的戰鬥性格。">
+    <meta property="og:title" content="HCF 新竹格鬥館 | 覺醒你的戰鬥 DNA">
+    <meta property="og:description" content="新竹頂級格鬥基地。從體態雕塑到防身實戰，為你打造專屬的戰鬥性格。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="hcf_logo_main.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -381,12 +385,12 @@
         </div>
     </section>
 
-    <footer class="bg-brand-bg pt-24 pb-12 border-t hairline relative z-10 transition-colors duration-500">
+    <footer class="bg-brand-bg pt-24 pb-20 md:pb-12 border-t hairline relative z-10 transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
                 <div class="lg:col-span-5 fade-up">
                     <div class="flex items-end gap-4 mb-6 opacity-90">
-                        <img src="hcf_logo_main.png" alt="HCF Logo" class="h-16 w-auto object-contain filter drop-shadow-md" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="hcf_logo_main.png" alt="HCF Logo" class="h-16 w-auto object-contain filter drop-shadow-md" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div class="hidden text-7xl font-black tracking-widest uppercase text-brand-text leading-none">HCF<span class="text-brand-red">.</span></div>
                         <div class="pb-1">
                             <h2 class="text-xl font-black tracking-widest text-brand-text">HCF 新竹格鬥館</h2>
@@ -457,10 +461,19 @@
         </div>
     </footer>
 
-    <a href="https://lin.ee/7lidUv0" target="_blank" class="fixed bottom-6 right-6 z-[70] bg-brand-red text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_5px_20px_rgba(230,57,70,0.5)] hover:scale-110 transition-transform group interactive-el">
+    <a href="https://lin.ee/7lidUv0" target="_blank" class="fixed bottom-20 md:bottom-6 right-6 z-[70] bg-brand-red text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_5px_20px_rgba(230,57,70,0.5)] hover:scale-110 transition-transform group interactive-el">
         <i class="fa-brands fa-line text-2xl group-hover:hidden"></i>
         <span class="hidden group-hover:block text-[10px] font-bold tracking-widest">預約</span>
     </a>
+
+    <div class="fixed bottom-0 left-0 right-0 z-[60] md:hidden bg-brand-bg/95 backdrop-blur-md border-t hairline p-3 flex gap-3">
+        <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="flex-1 text-center bg-brand-red text-white py-3 text-xs font-bold tracking-widest">
+            預約體驗
+        </a>
+        <a href="https://lin.ee/7lidUv0" target="_blank" class="flex-1 text-center border hairline text-brand-muted py-3 text-xs font-bold tracking-widest">
+            <i class="fa-brands fa-line mr-1"></i>LINE 諮詢
+        </a>
+    </div>
 
     <script>
         function toggleTheme() {
