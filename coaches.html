@@ -2,35 +2,101 @@
 <html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HCF 戰鬥指揮官 | 沉浸式教練陣容</title>
+    <meta property="og:title" content="HCF 戰鬥指揮官 | 沉浸式教練陣容">
+    <meta property="og:description" content="只有從鮮血與勝利中走出來的現役戰士。HCF 新竹格鬥館頂級教練團隊。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="hcf_logo_main.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
     <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light-mode');
+        }
+        
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['"Noto Sans TC"', 'sans-serif'], serif: ['"Cormorant Garamond"', 'serif'] },
-                    colors: { brand: { bg: '#050505', text: '#f5f5f7', muted: '#9ca3af', red: '#E63946' } }
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: { 
+                        brand: { 
+                            bg: 'rgb(var(--color-bg) / <alpha-value>)',
+                            panel: 'rgb(var(--color-panel) / <alpha-value>)',
+                            text: 'rgb(var(--color-text) / <alpha-value>)',
+                            border: 'rgb(var(--color-border) / <alpha-value>)',
+                            muted: 'rgb(var(--color-muted) / <alpha-value>)',
+                            red: '#E63946',
+                            redDark: '#A61C2E'
+                        } 
+                    }
                 }
             }
         }
     </script>
 
     <style>
-        body { background-color: #050505; color: #f5f5f7; overflow-x: hidden; }
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        :root {
+            --color-bg: 5 5 5;
+            --color-panel: 15 15 15;
+            --color-text: 245 245 247;
+            --color-border: 255 255 255;
+            --color-muted: 156 163 175;
+            --img-brightness: 0.35;
+        }
+
+        html.light-mode {
+            --color-bg: 245 245 247;
+            --color-panel: 255 255 255;
+            --color-text: 20 20 20;
+            --color-border: 0 0 0;
+            --color-muted: 107 114 128;
+            --img-brightness: 0.7;
+        }
+
+        body { 
+            background-color: rgb(var(--color-bg)); 
+            color: rgb(var(--color-text)); 
+            overflow-x: hidden; 
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: rgb(var(--color-bg)); }
+        ::-webkit-scrollbar-thumb { background: rgb(var(--color-muted) / 0.5); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #E63946; }
+
+        .hairline { border-color: rgb(var(--color-border) / 0.1); transition: border-color 0.5s ease; }
+        .glass-panel { 
+            background: rgb(var(--color-panel) / 0.85); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border-right: 1px solid rgb(var(--color-border) / 0.05); 
+            transition: background-color 0.5s ease, border-color 0.5s ease;
+        }
+        
+        .theme-img { transition: filter 0.5s ease, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        html.light-mode .theme-img { filter: grayscale(50%) brightness(0.8); }
         
         @media (min-width: 768px) {
-            body, a, button { cursor: none !important; }
+            body, a, button, .cursor-pointer { cursor: none !important; }
             .custom-cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: #E63946; border-radius: 50%; z-index: 10000; pointer-events: none; transition: width 0.2s ease, height 0.2s ease; will-change: transform; }
             .custom-cursor-ring { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid rgba(230,57,70,0.5); border-radius: 50%; z-index: 9999; pointer-events: none; transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease; will-change: transform; }
             body.hovering .custom-cursor-dot { width: 0; height: 0; }
             body.hovering .custom-cursor-ring { width: 50px; height: 50px; border-color: #E63946; background: rgba(230,57,70,0.1); backdrop-filter: blur(2px); }
         }
+
+        .dropdown-menu { visibility: hidden; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
+        .group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateY(0); }
+
+        .fade-up { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
 
         .coach-img { 
             opacity: 0; 
@@ -45,10 +111,10 @@
             filter: grayscale(0%) brightness(0.8);
         }
         
-        .text-mask-left { background: linear-gradient(to top, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.7) 40%, transparent 100%); }
+        .text-mask-left { background: linear-gradient(to top, rgb(var(--color-bg) / 0.9) 0%, rgb(var(--color-bg) / 0.7) 40%, transparent 100%); }
         @media (min-width: 768px) {
-            .text-mask-left { background: linear-gradient(to right, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 40%, transparent 100%); }
-            .text-mask-right { background: linear-gradient(to left, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 40%, transparent 100%); }
+            .text-mask-left { background: linear-gradient(to right, rgb(var(--color-bg) / 0.95) 0%, rgb(var(--color-bg) / 0.6) 40%, transparent 100%); }
+            .text-mask-right { background: linear-gradient(to left, rgb(var(--color-bg) / 0.95) 0%, rgb(var(--color-bg) / 0.6) 40%, transparent 100%); }
         }
     </style>
 </head>
@@ -57,14 +123,104 @@
     <div class="custom-cursor-dot hidden md:block" id="cursor-dot"></div>
     <div class="custom-cursor-ring hidden md:block" id="cursor-ring"></div>
 
-    <nav class="fixed w-full z-[80] transition-all duration-500 py-6 px-6 md:px-12 flex justify-between items-center pointer-events-none">
-        <a href="index.html" class="text-2xl md:text-3xl font-black tracking-[0.2em] uppercase flex items-baseline text-white pointer-events-auto interactive-el mix-blend-difference">
-            HCF<span class="text-brand-red text-4xl leading-[0.5] block">.</span>
+    <nav class="fixed w-full z-[80] transition-all duration-500 backdrop-blur-md bg-brand-bg/80 border-b hairline py-4 px-6 md:px-10 flex justify-between items-center" id="navbar">
+        <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity interactive-el group">
+            <img src="hcf_logo_main.png" alt="HCF Logo" class="h-8 md:h-10 w-auto object-contain filter drop-shadow-md group-hover:scale-105 transition-transform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="hidden flex-col items-start justify-center">
+                <span class="text-2xl md:text-3xl font-black tracking-[0.2em] uppercase leading-none text-brand-text flex items-baseline">HCF<span class="text-brand-red text-4xl leading-[0.5]">.</span></span>
+            </div>
+            <div class="flex flex-col items-start justify-center border-l border-brand-text/20 pl-3">
+                <span class="text-sm md:text-base font-black tracking-widest text-brand-text leading-tight">HCF</span>
+                <span class="text-[10px] md:text-xs font-bold tracking-[0.1em] text-brand-muted leading-tight">新竹格鬥館</span>
+            </div>
         </a>
-        <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="pointer-events-auto text-xs tracking-[0.2em] bg-brand-red text-white px-6 py-3 font-bold hover:bg-white hover:text-black transition-colors duration-300 interactive-el magnetic-btn shadow-[0_0_20px_rgba(230,57,70,0.5)]">
-            預約覺醒
-        </a>
+        
+        <div class="hidden lg:flex items-center gap-8 text-xs tracking-[0.2em] font-medium text-brand-muted">
+            <a href="index.html" class="hover:text-brand-red transition-colors interactive-el">首頁</a>
+            <a href="index.html#news" class="hover:text-brand-red transition-colors interactive-el">最新消息</a>
+            <a href="index.html#philosophy" class="hover:text-brand-red transition-colors interactive-el">品牌哲學</a>
+            <div class="relative group py-4">
+                <a href="index.html#horizontal-courses" class="hover:text-brand-red transition-colors flex items-center gap-1 interactive-el">
+                    課程介紹 <i class="fa-solid fa-angle-down text-[10px]"></i>
+                </a>
+                <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-0 w-48 bg-brand-panel/95 backdrop-blur-xl border hairline shadow-2xl py-3 flex flex-col gap-1 z-50 rounded-sm">
+                    <a href="group-class.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">團體課程</a>
+                    <a href="private-class.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">私人課程</a>
+                    <a href="index.html#horizontal-courses" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">泰拳訓練</a>
+                    <a href="index.html#horizontal-courses" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">踢拳訓練</a>
+                    <a href="index.html#horizontal-courses" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">散打訓練</a>
+                    <a href="index.html#horizontal-courses" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">肌力體能</a>
+                </div>
+            </div>
+            <a href="coaches.html" class="text-brand-red font-bold interactive-el">教練團隊</a>
+            <div class="relative group py-4">
+                <a href="index.html#pricing" class="hover:text-brand-red transition-colors flex items-center gap-1 interactive-el">
+                    課程方案 <i class="fa-solid fa-angle-down text-[10px]"></i>
+                </a>
+                <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-0 w-40 bg-brand-panel/95 backdrop-blur-xl border hairline shadow-2xl py-3 flex flex-col gap-1 z-50 rounded-sm">
+                    <a href="group-class.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">團體課程</a>
+                    <a href="private-class.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">私人課程</a>
+                </div>
+            </div>
+            <a href="index.html#faq" class="hover:text-brand-red transition-colors interactive-el">新手問答</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()" class="text-brand-muted hover:text-brand-red transition-colors interactive-el w-8 h-8 flex items-center justify-center text-lg" aria-label="Toggle Theme">
+                <i class="fa-solid fa-circle-half-stroke theme-icon"></i>
+            </button>
+            <a href="https://lin.ee/7lidUv0" target="_blank" class="hidden md:flex items-center gap-2 text-xs tracking-[0.1em] text-brand-muted hover:text-brand-text transition-colors interactive-el">
+                <i class="fa-brands fa-line text-lg"></i> 專屬顧問
+            </a>
+            <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="hidden md:block text-xs tracking-[0.2em] bg-brand-red text-white px-6 py-2.5 font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 shadow-[0_0_15px_rgba(230,57,70,0.3)] interactive-el magnetic-btn">
+                預約體驗
+            </a>
+            <button onclick="toggleNavDrawer()" class="lg:hidden text-brand-text text-xl interactive-el w-10 h-10 flex items-center justify-center">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
     </nav>
+
+    <div id="drawer-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-500" onclick="closeAllDrawers()"></div>
+
+    <aside id="nav-drawer" class="fixed top-0 right-0 w-[85%] md:w-[350px] h-[100dvh] glass-panel border-l border-r-0 hairline z-[100] transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col p-8 pt-20 overflow-y-auto lg:hidden">
+        <button onclick="closeAllDrawers()" class="absolute top-6 left-6 text-brand-muted hover:text-brand-red text-xl interactive-el"><i class="fa-solid fa-xmark"></i></button>
+        <div class="space-y-6 flex-grow text-lg font-bold tracking-widest">
+            <a href="index.html" class="block text-brand-text hover:text-brand-red interactive-el" onclick="closeAllDrawers()">首頁</a>
+            <a href="index.html#news" class="block text-brand-text hover:text-brand-red interactive-el" onclick="closeAllDrawers()">最新消息</a>
+            <a href="index.html#philosophy" class="block text-brand-text hover:text-brand-red interactive-el" onclick="closeAllDrawers()">品牌哲學</a>
+            <details class="group">
+                <summary class="text-brand-text hover:text-brand-red flex justify-between items-center cursor-pointer list-none outline-none interactive-el border-b hairline pb-2">
+                    課程介紹 <i class="fa-solid fa-plus text-xs group-open:rotate-45 transition-transform"></i>
+                </summary>
+                <div class="pl-4 py-3 space-y-4 text-sm text-brand-muted font-normal">
+                    <a href="group-class.html" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">團體課程</a>
+                    <a href="private-class.html" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">私人課程</a>
+                    <a href="index.html#horizontal-courses" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">泰拳訓練</a>
+                    <a href="index.html#horizontal-courses" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">踢拳訓練</a>
+                    <a href="index.html#horizontal-courses" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">散打訓練</a>
+                    <a href="index.html#horizontal-courses" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">肌力體能</a>
+                </div>
+            </details>
+            <a href="coaches.html" class="block text-brand-red font-bold interactive-el" onclick="closeAllDrawers()">教練團隊</a>
+            <details class="group">
+                <summary class="text-brand-text hover:text-brand-red flex justify-between items-center cursor-pointer list-none outline-none interactive-el border-b hairline pb-2">
+                    課程方案 <i class="fa-solid fa-plus text-xs group-open:rotate-45 transition-transform"></i>
+                </summary>
+                <div class="pl-4 py-3 space-y-4 text-sm text-brand-muted font-normal">
+                    <a href="group-class.html" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">團體課程</a>
+                    <a href="private-class.html" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">私人課程</a>
+                </div>
+            </details>
+            <a href="index.html#faq" class="block text-brand-text hover:text-brand-red interactive-el" onclick="closeAllDrawers()">新手問答</a>
+        </div>
+        <div class="mt-8">
+            <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="block w-full text-center bg-brand-red text-white py-4 tracking-widest text-sm interactive-el shadow-[0_5px_15px_rgba(230,57,70,0.3)]">
+                預約體驗
+            </a>
+        </div>
+    </aside>
+
 
     <section class="w-full h-[100dvh] flex flex-col justify-center items-center bg-black text-center px-6 relative z-10">
         <p class="text-brand-red text-xs md:text-sm tracking-[0.4em] font-mono font-bold mb-6 animate-pulse">SELECT YOUR COMMANDER</p>
@@ -84,11 +240,11 @@
     <section class="coach-section relative w-full h-[500vh] bg-black">
         <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="coach_huang_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
-                <img src="coach_huang_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_huang_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_huang_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_huang_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_huang_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549719386-74dfc97dd4fc?auto=format&fit=crop&q=80&w=1200';">
+                <img src="coach_huang_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_huang_01_portrait.jpg';">
+                <img src="coach_huang_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_huang_01_portrait.jpg';">
+                <img src="coach_huang_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_huang_01_portrait.jpg';">
+                <img src="coach_huang_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_huang_01_portrait.jpg';">
             </div>
             <div class="absolute inset-0 z-10 text-mask-left"></div>
             <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center px-6 pb-24 md:pb-0 md:pl-24 max-w-7xl mx-auto">
@@ -118,11 +274,11 @@
     <section class="coach-section relative w-full h-[500vh] bg-black">
         <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="coach_allen_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
-                <img src="coach_allen_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_allen_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_allen_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_allen_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_allen_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549719386-74dfc97dd4fc?auto=format&fit=crop&q=80&w=1200';">
+                <img src="coach_allen_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_allen_01_portrait.jpg';">
+                <img src="coach_allen_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_allen_01_portrait.jpg';">
+                <img src="coach_allen_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_allen_01_portrait.jpg';">
+                <img src="coach_allen_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_allen_01_portrait.jpg';">
             </div>
             <div class="absolute inset-0 z-10 text-mask-left md:text-mask-right"></div>
             <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center items-end px-6 pb-24 md:pb-0 md:pr-24 max-w-7xl mx-auto text-left md:text-right">
@@ -151,11 +307,11 @@
     <section class="coach-section relative w-full h-[500vh] bg-black">
         <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="coach_cheng_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
-                <img src="coach_cheng_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_cheng_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_cheng_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_cheng_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_cheng_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549719386-74dfc97dd4fc?auto=format&fit=crop&q=80&w=1200';">
+                <img src="coach_cheng_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_cheng_01_portrait.jpg';">
+                <img src="coach_cheng_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_cheng_01_portrait.jpg';">
+                <img src="coach_cheng_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_cheng_01_portrait.jpg';">
+                <img src="coach_cheng_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_cheng_01_portrait.jpg';">
             </div>
             <div class="absolute inset-0 z-10 text-mask-left"></div>
             <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center px-6 pb-24 md:pb-0 md:pl-24 max-w-7xl mx-auto">
@@ -184,11 +340,11 @@
     <section class="coach-section relative w-full h-[500vh] bg-black">
         <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="coach_kao_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
-                <img src="coach_kao_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_kao_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_kao_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_kao_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_kao_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549719386-74dfc97dd4fc?auto=format&fit=crop&q=80&w=1200';">
+                <img src="coach_kao_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_kao_01_portrait.jpg';">
+                <img src="coach_kao_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_kao_01_portrait.jpg';">
+                <img src="coach_kao_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_kao_01_portrait.jpg';">
+                <img src="coach_kao_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_kao_01_portrait.jpg';">
             </div>
             <div class="absolute inset-0 z-10 text-mask-left md:text-mask-right"></div>
             <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center items-end px-6 pb-24 md:pb-0 md:pr-24 max-w-7xl mx-auto text-left md:text-right">
@@ -217,11 +373,11 @@
     <section class="coach-section relative w-full h-[500vh] bg-black">
         <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="coach_hu_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
-                <img src="coach_hu_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_hu_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_hu_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_hu_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_hu_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549719386-74dfc97dd4fc?auto=format&fit=crop&q=80&w=1200';">
+                <img src="coach_hu_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_hu_01_portrait.jpg';">
+                <img src="coach_hu_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_hu_01_portrait.jpg';">
+                <img src="coach_hu_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_hu_01_portrait.jpg';">
+                <img src="coach_hu_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_hu_01_portrait.jpg';">
             </div>
             <div class="absolute inset-0 z-10 text-mask-left"></div>
             <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center px-6 pb-24 md:pb-0 md:pl-24 max-w-7xl mx-auto">
@@ -250,11 +406,11 @@
     <section class="coach-section relative w-full h-[500vh] bg-black">
         <div class="sticky top-0 w-full h-[100dvh] overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="coach_mimi_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover">
-                <img src="coach_mimi_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_mimi_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_mimi_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
-                <img src="coach_mimi_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover">
+                <img src="coach_mimi_01_portrait.jpg" class="coach-img active absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549719386-74dfc97dd4fc?auto=format&fit=crop&q=80&w=1200';">
+                <img src="coach_mimi_02_wrap.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_mimi_01_portrait.jpg';">
+                <img src="coach_mimi_03_padwork.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_mimi_01_portrait.jpg';">
+                <img src="coach_mimi_04_strike.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_mimi_01_portrait.jpg';">
+                <img src="coach_mimi_05_ring.jpg" class="coach-img absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.onerror=null; this.src='coach_mimi_01_portrait.jpg';">
             </div>
             <div class="absolute inset-0 z-10 text-mask-left md:text-mask-right"></div>
             <div class="relative z-20 w-full h-full flex flex-col justify-end md:justify-center items-end px-6 pb-24 md:pb-0 md:pr-24 max-w-7xl mx-auto text-left md:text-right">
@@ -280,12 +436,128 @@
     </section>
 
     <!-- CTA Bottom -->
-    <section class="py-32 bg-black border-t border-white/10 text-center relative z-20">
-        <h2 class="text-3xl md:text-5xl font-black text-white tracking-widest mb-8">選擇你的指揮官。</h2>
-        <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="inline-block px-12 py-5 bg-brand-red text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all duration-300 shadow-[0_10px_30px_rgba(230,57,70,0.4)] interactive-el magnetic-btn">立刻預約覺醒</a>
+    <section class="py-32 bg-brand-bg border-t hairline text-center relative z-20 transition-colors duration-500">
+        <h2 class="text-3xl md:text-5xl font-black text-brand-text tracking-widest mb-8">選擇你的指揮官。</h2>
+        <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="inline-block px-12 py-5 bg-brand-red text-white text-sm tracking-[0.2em] font-bold hover:bg-brand-text hover:text-brand-bg transition-all duration-300 shadow-[0_10px_30px_rgba(230,57,70,0.4)] interactive-el magnetic-btn">立刻預約覺醒</a>
     </section>
 
+    <footer class="bg-brand-bg pt-24 pb-12 border-t hairline relative z-10 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+                <div class="lg:col-span-5 fade-up">
+                    <div class="flex items-end gap-4 mb-6 opacity-90">
+                        <img src="hcf_logo_main.png" alt="HCF Logo" class="h-16 w-auto object-contain filter drop-shadow-md" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="hidden text-7xl font-black tracking-widest uppercase text-brand-text leading-none">HCF<span class="text-brand-red">.</span></div>
+                        <div class="pb-1">
+                            <h2 class="text-xl font-black tracking-widest text-brand-text">HCF 新竹格鬥館</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 text-sm text-brand-muted leading-loose tracking-wider text-justify">
+                        <p>HCF 新竹格鬥致力於推廣格鬥運動，不是只有外人眼中的暴力，而是一種<strong class="text-brand-text">精神</strong>。</p>
+                        <p>人生有時候就像一場拳賽，我們都曾被不如意的事情一次次擊倒。<br>但別害怕，站起來。<br>HCF 的精神不僅是格鬥，更是關於如何在逆境中重生，看到你自己有多強大。</p>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 lg:pl-10 fade-up">
+                    <div class="md:col-span-2 space-y-8">
+                        <div>
+                            <h4 class="text-brand-text font-bold tracking-widest mb-4 border-l-2 border-brand-red pl-2">營業時間</h4>
+                            <ul class="text-sm text-brand-muted space-y-2 font-mono">
+                                <li>週一～週五 <span class="text-brand-text ml-2">11:00 - 22:00</span></li>
+                                <li>週六＆週日 <span class="text-brand-text ml-2">11:00 - 16:00</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-brand-text font-bold tracking-widest mb-4 border-l-2 border-brand-red pl-2">基地座標</h4>
+                            <ul class="text-sm text-brand-muted space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-location-dot mt-1 text-brand-red w-4"></i> 
+                                    <a href="https://maps.app.goo.gl/Mee8hr4Xcr53UWy37" target="_blank" class="hover:text-brand-text transition-colors interactive-el border-b border-transparent hover:border-brand-text pb-0.5">新竹市北區林森路301號2樓</a>
+                                </li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-brand-red w-4"></i> <span class="font-mono">0925-571-225</span></li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-brand-red w-4"></i> <span class="font-mono text-xs">hsinchucombat2022@gmail.com</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-brand-text font-bold tracking-widest mb-4 border-l-2 border-brand-red pl-2">選單連結</h4>
+                        <ul class="text-sm text-brand-muted space-y-3">
+                            <li><a href="index.html" class="hover:text-brand-red transition-colors interactive-el">首頁</a></li>
+                            <li><a href="index.html#news" class="hover:text-brand-red transition-colors interactive-el">最新消息</a></li>
+                            <li><a href="index.html#philosophy" class="hover:text-brand-red transition-colors interactive-el">品牌哲學</a></li>
+                            <li class="group">
+                                <span class="text-brand-text cursor-default">課程介紹</span>
+                                <ul class="pl-3 mt-2 space-y-2 text-xs border-l hairline ml-1">
+                                    <li><a href="group-class.html" class="hover:text-brand-red transition-colors interactive-el">團體課程</a></li>
+                                    <li><a href="private-class.html" class="hover:text-brand-red transition-colors interactive-el">私人課程</a></li>
+                                    <li><a href="index.html#horizontal-courses" class="hover:text-brand-red transition-colors interactive-el">四大專業特訓</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="coaches.html" class="text-brand-red font-bold transition-colors interactive-el">教練團隊</a></li>
+                            <li><a href="index.html#pricing" class="hover:text-brand-red transition-colors interactive-el">課程方案</a></li>
+                            <li><a href="index.html#faq" class="hover:text-brand-red transition-colors interactive-el">新手問答</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t hairline gap-6">
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="w-10 h-10 bg-brand-red text-white flex items-center justify-center hover:bg-brand-text hover:text-brand-bg transition-colors interactive-el shadow-lg" title="預約體驗"><i class="fa-solid fa-bolt"></i></a>
+                    <a href="https://lin.ee/7lidUv0" target="_blank" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#06C755] hover:text-[#06C755] transition-colors interactive-el magnetic-btn" title="官方 LINE"><i class="fa-brands fa-line text-lg"></i></a>
+                    <a href="https://www.instagram.com/hc.combat2022/" target="_blank" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#E1306C] hover:text-[#E1306C] transition-colors interactive-el magnetic-btn" title="Instagram 基地實況"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="https://m.facebook.com/hsinchucombat/" target="_blank" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#1877F2] hover:text-[#1877F2] transition-colors interactive-el magnetic-btn" title="Facebook 賽事公告"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+                    <a href="https://youtube.com/playlist?list=PLFtibVDr-YTBsPUoEfClpei2ttq1mGtKN&si=y6yMvAKxk_vUSrN7" target="_blank" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#FF0000] hover:text-[#FF0000] transition-colors interactive-el magnetic-btn" title="YouTube 賽事影片"><i class="fa-brands fa-youtube text-lg"></i></a>
+                </div>
+                <div class="text-[10px] text-brand-muted font-mono tracking-widest text-center md:text-right">
+                    <p>© 2026 HCF COMBAT SYSTEM. ALL RIGHTS RESERVED.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://lin.ee/7lidUv0" target="_blank" class="fixed bottom-6 right-6 z-[70] bg-brand-red text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_5px_20px_rgba(230,57,70,0.5)] hover:scale-110 transition-transform group interactive-el">
+        <i class="fa-brands fa-line text-2xl group-hover:hidden"></i>
+        <span class="hidden group-hover:block text-[10px] font-bold tracking-widest">預約</span>
+    </a>
+
+
     <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            html.classList.toggle('light-mode');
+            const isLight = html.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            
+            const icon = document.querySelector('.theme-icon');
+            if(isLight) {
+                icon.classList.remove('fa-circle-half-stroke');
+                icon.classList.add('fa-moon');
+            } else {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-circle-half-stroke');
+            }
+        }
+        if (document.documentElement.classList.contains('light-mode')) {
+            document.querySelector('.theme-icon').classList.replace('fa-circle-half-stroke', 'fa-moon');
+        }
+
+        const navDrawer = document.getElementById('nav-drawer');
+        const backdrop = document.getElementById('drawer-backdrop');
+
+        function toggleNavDrawer() {
+            if (navDrawer.classList.contains('translate-x-full')) { navDrawer.classList.remove('translate-x-full'); showBackdrop(); } else { closeAllDrawers(); }
+        }
+        function showBackdrop() { backdrop.classList.remove('pointer-events-none', 'opacity-0'); backdrop.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; }
+        function closeAllDrawers() { navDrawer.classList.add('translate-x-full'); backdrop.classList.remove('opacity-100'); backdrop.classList.add('opacity-0', 'pointer-events-none'); document.body.style.overflow = ''; }
+
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { nav.classList.add('py-3'); nav.classList.remove('py-4'); } 
+            else { nav.classList.remove('py-3'); nav.classList.add('py-4'); }
+        }, { passive: true });
+
         // 游標邏輯
         if (window.matchMedia("(pointer: fine)").matches) {
             const cursorDot = document.getElementById('cursor-dot'), cursorRing = document.getElementById('cursor-ring');
@@ -357,6 +629,14 @@
         }
         
         requestAnimationFrame(handleScroll);
+
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
