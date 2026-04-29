@@ -8,8 +8,25 @@
     <meta property="og:title" content="HCF 新竹格鬥館 | 覺醒你的戰鬥 DNA">
     <meta property="og:description" content="新竹頂級格鬥基地。從體態雕塑到防身實戰，為你打造專屬的戰鬥性格。">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="hcf_logo_main.png">
-    
+    <meta property="og:image" content="https://a126849062justin-hue.github.io/1140324/hcf_logo_main.png">
+    <meta property="og:url" content="https://a126849062justin-hue.github.io/1140324/index.html">
+    <meta property="og:site_name" content="HCF 新竹格鬥館">
+    <meta property="og:locale" content="zh_TW">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HCF 新竹格鬥館 | 覺醒你的戰鬥 DNA">
+    <meta name="twitter:description" content="新竹頂級格鬥基地。從體態雕塑到防身實戰，為你打造專屬的戰鬥性格。">
+    <meta name="twitter:image" content="https://a126849062justin-hue.github.io/1140324/hcf_logo_main.png">
+    <link rel="canonical" href="https://a126849062justin-hue.github.io/1140324/index.html">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#E63946">
+    <link rel="icon" type="image/png" href="hcf_logo_main.png">
+    <link rel="apple-touch-icon" href="hcf_logo_main.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="HCF">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -85,7 +102,7 @@
         .theme-img { transition: filter 0.5s ease, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
         html.light-mode .theme-img { filter: grayscale(50%) brightness(0.8); }
         
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
             body, a, button, .cursor-pointer { cursor: none !important; }
             .custom-cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: #E63946; border-radius: 50%; z-index: 10000; pointer-events: none; transition: width 0.2s ease, height 0.2s ease; will-change: transform; }
             .custom-cursor-ring { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid rgba(230,57,70,0.5); border-radius: 50%; z-index: 9999; pointer-events: none; transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease; will-change: transform; }
@@ -102,7 +119,46 @@
 
         .fade-up { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 767px) {
+          .glass-panel, [class*="backdrop-blur"] { backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; }
+        }
+        @supports not (backdrop-filter: blur(1px)) {
+          .glass-panel { background: rgb(var(--color-panel)) !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+          }
+          .custom-cursor-dot, .custom-cursor-ring { display: none !important; }
+        }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "HCF 新竹格鬥館",
+      "image": "https://a126849062justin-hue.github.io/1140324/hcf_logo_main.png",
+      "url": "https://a126849062justin-hue.github.io/1140324/",
+      "telephone": "+886-925-571-225",
+      "email": "hsinchucombat2022@gmail.com",
+      "priceRange": "$$",
+      "address": { "@type": "PostalAddress", "addressCountry": "TW", "addressLocality": "新竹市" },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "11:00", "closes": "22:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "11:00", "closes": "16:00" }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/hc.combat2022/",
+        "https://m.facebook.com/hsinchucombat/",
+        "https://lin.ee/7lidUv0"
+      ]
+    }
+    </script>
 </head>
 <body class="antialiased selection:bg-brand-red selection:text-white">
 
@@ -110,7 +166,7 @@
     <div class="custom-cursor-ring hidden md:block" id="cursor-ring"></div>
 
     <nav class="fixed w-full z-[80] transition-all duration-500 backdrop-blur-md bg-brand-bg/80 border-b hairline py-4 px-6 md:px-10 flex justify-between items-center" id="navbar">
-        <button onclick="toggleBrandDrawer()" class="flex items-center gap-3 hover:opacity-80 transition-opacity interactive-el group">
+        <button onclick="toggleBrandDrawer()" class="flex items-center gap-3 hover:opacity-80 transition-opacity interactive-el group" aria-label="開啟品牌哲學抽屜">
             <img src="hcf_logo_main.png" alt="HCF Logo" class="h-8 md:h-10 w-auto object-contain filter drop-shadow-md group-hover:scale-105 transition-transform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="hidden flex-col items-start justify-center">
                 <span class="text-2xl md:text-3xl font-black tracking-[0.2em] uppercase leading-none text-brand-text flex items-baseline">HCF<span class="text-brand-red text-4xl leading-[0.5]">.</span></span>
@@ -152,7 +208,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button onclick="toggleTheme()" class="text-brand-muted hover:text-brand-red transition-colors interactive-el w-8 h-8 flex items-center justify-center text-lg" aria-label="Toggle Theme">
+            <button onclick="toggleTheme()" class="text-brand-muted hover:text-brand-red transition-colors interactive-el w-11 h-11 flex items-center justify-center text-lg" aria-label="Toggle Theme">
                 <i class="fa-solid fa-circle-half-stroke theme-icon"></i>
             </button>
             <a href="https://lin.ee/7lidUv0" target="_blank" class="hidden md:flex items-center gap-2 text-xs tracking-[0.1em] text-brand-muted hover:text-brand-text transition-colors interactive-el">
@@ -161,7 +217,7 @@
             <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="hidden md:block text-xs tracking-[0.2em] bg-brand-red text-white px-6 py-2.5 font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 shadow-[0_0_15px_rgba(230,57,70,0.3)] interactive-el magnetic-btn">
                 預約體驗
             </a>
-            <button onclick="toggleNavDrawer()" class="lg:hidden text-brand-text text-xl interactive-el w-10 h-10 flex items-center justify-center">
+            <button onclick="toggleNavDrawer()" class="lg:hidden text-brand-text text-xl interactive-el w-11 h-11 flex items-center justify-center">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
         </div>
@@ -255,7 +311,7 @@
     </aside>
 
     <section id="hero-zoom-section" class="relative w-full h-[200vh]">
-        <div class="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-center items-center bg-brand-bg">
+        <div class="sticky top-0 w-full h-[100dvh] overflow-hidden flex flex-col justify-center items-center bg-brand-bg">
             <div class="absolute inset-0 z-0 flex items-center justify-center">
                 <img id="zoom-image" src="hero-main.jpg" alt="Hero Main" class="w-full h-full object-cover theme-img filter grayscale-[80%] brightness-[0.35] transform scale-100 will-change-transform" onerror="this.src='https://images.unsplash.com/photo-1549719386-74dfc97dd4fc?auto=format&fit=crop&q=80&w=2000';">
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-brand-bg/50 transition-colors duration-500"></div>
@@ -286,7 +342,7 @@
     </section>
 
     <section id="horizontal-courses" class="hidden md:block relative w-full h-[400vh] bg-brand-panel transition-colors duration-500">
-        <div class="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden border-y hairline">
+        <div class="sticky top-0 w-full h-[100dvh] flex flex-col justify-center overflow-hidden border-y hairline">
             <div class="absolute top-24 left-12 z-20 mix-blend-difference">
                 <h2 class="text-5xl font-serif text-white tracking-widest">Programs.</h2>
                 <p class="text-brand-red text-sm tracking-[0.3em] mt-2 font-bold">精選課程 / 左右滑動探索</p>
@@ -294,7 +350,7 @@
             <div id="scroll-container" class="flex items-center gap-12 px-[10vw] h-[60vh] mt-10 w-[max-content] will-change-transform">
                 
                 <div class="w-[450px] h-full relative group interactive-el shrink-0 border hairline">
-                    <img src="course-team.jpg" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1599552375240-5a707106041a?auto=format&fit=crop&q=80&w=800';">
+                    <img src="course-team.jpg" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" onerror="this.onerror=null; this.src='coach_huang_03_padwork.jpg';">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent opacity-90"></div>
                     <div class="absolute bottom-8 left-8 right-8">
                         <span class="text-brand-red text-[10px] font-mono tracking-[0.2em] border border-brand-red px-2 py-1 mb-3 inline-block">TEAM BATTLE</span>
@@ -304,7 +360,7 @@
                 </div>
 
                 <div class="w-[450px] h-full relative group interactive-el shrink-0 border hairline">
-                    <img src="course-private.jpg" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800';">
+                    <img src="course-private.jpg" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" onerror="this.onerror=null; this.src='coach_allen_03_padwork.jpg';">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent opacity-90"></div>
                     <div class="absolute bottom-8 left-8 right-8">
                         <span class="bg-brand-red text-white text-[10px] font-mono tracking-[0.2em] px-2 py-1 mb-3 inline-block">ELITE FOCUS</span>
@@ -356,7 +412,7 @@
         </div>
         <div class="snap-container flex gap-6 px-6 pb-8 w-full after:content-[''] after:w-1 after:shrink-0">
             <div class="snap-slide w-[80vw] h-[60vh] relative shrink-0 border hairline">
-                <img src="course-team.jpg" class="w-full h-full object-cover filter grayscale brightness-75" onerror="this.src='https://images.unsplash.com/photo-1599552375240-5a707106041a?auto=format&fit=crop&q=80&w=800';">
+                <img src="course-team.jpg" class="w-full h-full object-cover filter grayscale brightness-75" onerror="this.onerror=null; this.src='coach_huang_03_padwork.jpg';">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
                 <div class="absolute bottom-6 left-6 right-6">
                     <span class="text-brand-red text-[10px] border border-brand-red px-2 py-1 mb-2 inline-block font-mono tracking-widest">TEAM BATTLE</span>
@@ -365,7 +421,7 @@
                 </div>
             </div>
             <div class="snap-slide w-[80vw] h-[60vh] relative shrink-0 border hairline">
-                <img src="course-private.jpg" class="w-full h-full object-cover filter grayscale brightness-75" onerror="this.src='https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800';">
+                <img src="course-private.jpg" class="w-full h-full object-cover filter grayscale brightness-75" onerror="this.onerror=null; this.src='coach_allen_03_padwork.jpg';">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
                 <div class="absolute bottom-6 left-6 right-6">
                     <span class="bg-brand-red text-white text-[10px] px-2 py-1 mb-2 inline-block font-mono tracking-widest">ELITE FOCUS</span>
@@ -381,6 +437,124 @@
                     <li><strong class="text-brand-text">散打</strong> - 摔打結合，鍛鍊核心。</li>
                     <li><strong class="text-brand-text">肌力體能</strong> - 提升代謝，關節穩定。</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新消息 -->
+    <section id="news" class="py-24 bg-brand-panel border-y hairline transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-4 py-2 inline-block mb-6">LATEST NEWS / 最新消息</span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-widest text-brand-text">戰場動態</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border hairline bg-brand-bg p-8 hover:border-brand-red/50 transition-colors fade-up">
+                    <span class="text-brand-red text-[10px] font-mono tracking-[0.3em] border border-brand-red px-2 py-1 inline-block mb-4">COMPETITION</span>
+                    <h3 class="text-xl font-black tracking-widest text-brand-text mb-3">2026 格鬥鋼鐵人賽事公告</h3>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider mb-6">HCF 選手將代表新竹出征本年度最大格鬥賽事。賽前集訓已全面啟動，歡迎有意參賽者報名甄選。</p>
+                    <a href="https://www.instagram.com/hc.combat2022/" target="_blank" class="text-[10px] font-mono tracking-widest text-brand-red hover:underline interactive-el">查看詳情 →</a>
+                </div>
+                <div class="border hairline bg-brand-bg p-8 hover:border-brand-red/50 transition-colors fade-up">
+                    <span class="text-brand-red text-[10px] font-mono tracking-[0.3em] border border-brand-red px-2 py-1 inline-block mb-4">INTERVIEW</span>
+                    <h3 class="text-xl font-black tracking-widest text-brand-text mb-3">總教練黃謙和專訪</h3>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider mb-6">從職業擂台到教學殿堂，黃總教練分享 42 場勝利背後的訓練哲學，以及格鬥如何改變一個人的人生軌跡。</p>
+                    <a href="https://m.facebook.com/hsinchucombat/" target="_blank" class="text-[10px] font-mono tracking-widest text-brand-red hover:underline interactive-el">閱讀全文 →</a>
+                </div>
+                <div class="border hairline bg-brand-bg p-8 hover:border-brand-red/50 transition-colors fade-up">
+                    <span class="text-brand-red text-[10px] font-mono tracking-[0.3em] border border-brand-red px-2 py-1 inline-block mb-4">NEW CLASS</span>
+                    <h3 class="text-xl font-black tracking-widest text-brand-text mb-3">女性自衛課程正式上線</h3>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider mb-6">專為女性設計的防身格鬥課程，從基礎脫困技巧到實戰意識建立，讓每位女性都具備保護自己的能力。</p>
+                    <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="text-[10px] font-mono tracking-widest text-brand-red hover:underline interactive-el">立即預約 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課程方案 -->
+    <section id="pricing" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-up">
+            <span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-4 py-2 inline-block mb-6">TRAINING PLANS / 課程方案</span>
+            <h2 class="text-4xl md:text-6xl font-black tracking-widest text-brand-text">選擇你的戰線</h2>
+            <p class="text-brand-muted mt-4 tracking-wider text-sm">無論你的目標是燃脂塑形、防身實戰，還是競技精進，我們都有你的戰鬥方案。</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="border border-brand-red/30 bg-brand-panel p-8 relative hover:border-brand-red transition-all duration-300 fade-up interactive-el flex flex-col">
+                <div class="absolute top-0 left-0 right-0 h-[2px] bg-brand-red"></div>
+                <span class="text-brand-red text-[10px] font-mono tracking-[0.3em] border border-brand-red px-3 py-1 inline-block mb-4 self-start">TEAM BATTLE</span>
+                <h3 class="text-2xl font-black tracking-widest text-brand-text mb-3">團體戰線</h3>
+                <p class="text-sm text-brand-muted leading-relaxed tracking-wider flex-grow mb-8">感受團隊氛圍的極致燃脂體驗。集體暖身、技術指導、靶位對練、實戰收尾，60 分鐘完整格鬥訓練。</p>
+                <a href="group-class.html" class="block w-full text-center bg-brand-red text-white py-3 tracking-widest text-xs font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 interactive-el">了解團體課程</a>
+            </div>
+            <div class="border hairline bg-brand-panel p-8 relative hover:border-brand-red/50 transition-all duration-300 fade-up interactive-el flex flex-col">
+                <span class="text-brand-muted text-[10px] font-mono tracking-[0.3em] border border-brand-muted/30 px-3 py-1 inline-block mb-4 self-start">ELITE FOCUS</span>
+                <h3 class="text-2xl font-black tracking-widest text-brand-text mb-3">菁英私人武裝</h3>
+                <p class="text-sm text-brand-muted leading-relaxed tracking-wider flex-grow mb-8">1 對 1 量身打造專屬裝甲。教練 100% 注意力只在你身上，針對個人弱點精準突破，進步速度快三倍。</p>
+                <a href="private-class.html" class="block w-full text-center border hairline text-brand-muted py-3 tracking-widest text-xs font-bold hover:border-brand-red hover:text-brand-red transition-colors duration-300 interactive-el">了解私人課程</a>
+            </div>
+            <div class="border hairline bg-brand-panel p-8 relative hover:border-brand-red/50 transition-all duration-300 fade-up interactive-el flex flex-col">
+                <span class="text-brand-muted text-[10px] font-mono tracking-[0.3em] border border-brand-muted/30 px-3 py-1 inline-block mb-4 self-start">TRIAL CLASS</span>
+                <h3 class="text-2xl font-black tracking-widest text-brand-text mb-3">新手體驗首選</h3>
+                <p class="text-sm text-brand-muted leading-relaxed tracking-wider flex-grow mb-8">零基礎也能上。體驗課讓你在零壓力環境中感受格鬥的魅力，發現自己隱藏的戰鬥潛能。</p>
+                <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="block w-full text-center bg-brand-red text-white py-3 tracking-widest text-xs font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 interactive-el">立即預約體驗</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新手問答 -->
+    <section id="faq" class="py-24 bg-brand-panel border-y hairline transition-colors duration-500">
+        <div class="max-w-4xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-4 py-2 inline-block mb-6">FAQ / 新手問答</span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-widest text-brand-text">你想知道的</h2>
+                <p class="text-brand-muted mt-4 tracking-wider text-sm">我們都幫你問了。</p>
+            </div>
+            <div class="space-y-4 fade-up">
+                <details class="group border hairline bg-brand-bg hover:border-brand-red/50 transition-colors">
+                    <summary class="flex justify-between items-center px-8 py-6 cursor-pointer list-none outline-none interactive-el">
+                        <span class="text-brand-text font-bold tracking-widest">上課要帶什麼裝備？</span>
+                        <i class="fa-solid fa-plus text-brand-red text-sm group-open:rotate-45 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-8 pb-6 text-sm text-brand-muted leading-relaxed tracking-wider border-t hairline pt-6">
+                        新手體驗課只需要穿著舒適的運動服和運動鞋即可，其餘裝備（手綁帶、拳套）館內備有體驗用具。若要長期訓練，建議準備個人手綁帶（衛生考量）。進階後可依需求添購個人拳套。
+                    </div>
+                </details>
+                <details class="group border hairline bg-brand-bg hover:border-brand-red/50 transition-colors">
+                    <summary class="flex justify-between items-center px-8 py-6 cursor-pointer list-none outline-none interactive-el">
+                        <span class="text-brand-text font-bold tracking-widest">完全沒有運動基礎，可以來嗎？</span>
+                        <i class="fa-solid fa-plus text-brand-red text-sm group-open:rotate-45 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-8 pb-6 text-sm text-brand-muted leading-relaxed tracking-wider border-t hairline pt-6">
+                        完全沒問題。HCF 的教練團隊擅長從零開始建立學員的格鬥基礎，我們的新手體驗課程就是專門為此設計。你唯一需要帶的，是願意挑戰自己的心態。
+                    </div>
+                </details>
+                <details class="group border hairline bg-brand-bg hover:border-brand-red/50 transition-colors">
+                    <summary class="flex justify-between items-center px-8 py-6 cursor-pointer list-none outline-none interactive-el">
+                        <span class="text-brand-text font-bold tracking-widest">格鬥適合女生嗎？</span>
+                        <i class="fa-solid fa-plus text-brand-red text-sm group-open:rotate-45 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-8 pb-6 text-sm text-brand-muted leading-relaxed tracking-wider border-t hairline pt-6">
+                        非常適合。格鬥訓練是最有效率的全身燃脂與塑形運動之一，同時能建立防身意識與心理自信。HCF 目前有超過 40% 的學員為女性，我們也提供女性專屬自衛課程。
+                    </div>
+                </details>
+                <details class="group border hairline bg-brand-bg hover:border-brand-red/50 transition-colors">
+                    <summary class="flex justify-between items-center px-8 py-6 cursor-pointer list-none outline-none interactive-el">
+                        <span class="text-brand-text font-bold tracking-widest">上課時真的要打到對方臉上嗎？</span>
+                        <i class="fa-solid fa-plus text-brand-red text-sm group-open:rotate-45 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-8 pb-6 text-sm text-brand-muted leading-relaxed tracking-wider border-t hairline pt-6">
+                        不會。HCF 的日常訓練以靶位訓練（打靶、打沙包）為主，強調技術、體能與心智的同步提升。自由對打（sparring）是進階選項，且全程配戴完整護具，並在教練監督下進行，安全第一。
+                    </div>
+                </details>
+                <details class="group border hairline bg-brand-bg hover:border-brand-red/50 transition-colors">
+                    <summary class="flex justify-between items-center px-8 py-6 cursor-pointer list-none outline-none interactive-el">
+                        <span class="text-brand-text font-bold tracking-widest">費用大概是多少？</span>
+                        <i class="fa-solid fa-plus text-brand-red text-sm group-open:rotate-45 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="px-8 pb-6 text-sm text-brand-muted leading-relaxed tracking-wider border-t hairline pt-6">
+                        依課程類型而有所不同。團體課、私人課、純靶修各有不同方案，歡迎透過 <a href="https://lin.ee/7lidUv0" target="_blank" class="text-brand-red hover:underline interactive-el">LINE 官方帳號</a> 詢問最新課程費用，或直接 <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="text-brand-red hover:underline interactive-el">預約體驗課程</a> 來館了解。
+                    </div>
+                </details>
             </div>
         </div>
     </section>
@@ -589,5 +763,6 @@
         }, observerOptions);
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
+    <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}</script>
 </body>
 </html>

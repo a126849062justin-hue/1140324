@@ -1,0 +1,15 @@
+{
+  "name": "HCF 新竹格鬥館",
+  "short_name": "HCF",
+  "description": "覺醒你的戰鬥 DNA - 新竹頂級格鬥基地",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050505",
+  "theme_color": "#E63946",
+  "icons": [
+    { "src": "hcf_logo_main.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "hcf_logo_main.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
