@@ -8,8 +8,25 @@
     <meta property="og:title" content="HCF 專業課程 | 菁英私人武裝 - 一對一私人格鬥教練">
     <meta property="og:description" content="HCF 新竹格鬥館私人課程。1對1量身打造專屬裝甲，針對個人體能與目標進行精準動作拆解與高壓靶修。">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="hcf_logo_main.png">
-    
+    <meta property="og:image" content="https://a126849062justin-hue.github.io/1140324/hcf_logo_main.png">
+    <meta property="og:url" content="https://a126849062justin-hue.github.io/1140324/private-class.html">
+    <meta property="og:site_name" content="HCF 新竹格鬥館">
+    <meta property="og:locale" content="zh_TW">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HCF 專業課程 | 菁英私人武裝 - 一對一私人格鬥教練">
+    <meta name="twitter:description" content="HCF 新竹格鬥館私人課程。1對1量身打造專屬裝甲，針對個人體能與目標進行精準動作拆解與高壓靶修。">
+    <meta name="twitter:image" content="https://a126849062justin-hue.github.io/1140324/hcf_logo_main.png">
+    <link rel="canonical" href="https://a126849062justin-hue.github.io/1140324/private-class.html">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#E63946">
+    <link rel="icon" type="image/png" href="hcf_logo_main.png">
+    <link rel="apple-touch-icon" href="hcf_logo_main.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="HCF">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -85,7 +102,7 @@
         .theme-img { transition: filter 0.5s ease, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
         html.light-mode .theme-img { filter: grayscale(50%) brightness(0.8); }
         
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
             body, a, button, .cursor-pointer { cursor: none !important; }
             .custom-cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: #E63946; border-radius: 50%; z-index: 10000; pointer-events: none; transition: width 0.2s ease, height 0.2s ease; will-change: transform; }
             .custom-cursor-ring { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid rgba(230,57,70,0.5); border-radius: 50%; z-index: 9999; pointer-events: none; transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease; will-change: transform; }
@@ -98,6 +115,23 @@
 
         .fade-up { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 767px) {
+          .glass-panel, [class*="backdrop-blur"] { backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; }
+        }
+        @supports not (backdrop-filter: blur(1px)) {
+          .glass-panel { background: rgb(var(--color-panel)) !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+          }
+          .custom-cursor-dot, .custom-cursor-ring { display: none !important; }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-red selection:text-white">
@@ -148,7 +182,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button onclick="toggleTheme()" class="text-brand-muted hover:text-brand-red transition-colors interactive-el w-8 h-8 flex items-center justify-center text-lg" aria-label="Toggle Theme">
+            <button onclick="toggleTheme()" class="text-brand-muted hover:text-brand-red transition-colors interactive-el w-11 h-11 flex items-center justify-center text-lg" aria-label="Toggle Theme">
                 <i class="fa-solid fa-circle-half-stroke theme-icon"></i>
             </button>
             <a href="https://lin.ee/7lidUv0" target="_blank" class="hidden md:flex items-center gap-2 text-xs tracking-[0.1em] text-brand-muted hover:text-brand-text transition-colors interactive-el">
@@ -157,7 +191,7 @@
             <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="hidden md:block text-xs tracking-[0.2em] bg-brand-red text-white px-6 py-2.5 font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 shadow-[0_0_15px_rgba(230,57,70,0.3)] interactive-el magnetic-btn">
                 預約體驗
             </a>
-            <button onclick="toggleNavDrawer()" class="lg:hidden text-brand-text text-xl interactive-el w-10 h-10 flex items-center justify-center">
+            <button onclick="toggleNavDrawer()" class="lg:hidden text-brand-text text-xl interactive-el w-11 h-11 flex items-center justify-center">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
         </div>
@@ -204,8 +238,8 @@
     </aside>
 
     <!-- Hero Section -->
-    <section class="relative w-full h-[80vh] flex flex-col justify-center items-center overflow-hidden">
-        <img src="course-private.jpg" class="absolute inset-0 w-full h-full object-cover theme-img filter grayscale-[60%] brightness-[0.3]" onerror="this.src='https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=2000';">
+    <section class="relative w-full h-[80dvh] flex flex-col justify-center items-center overflow-hidden">
+        <img src="course-private.jpg" class="absolute inset-0 w-full h-full object-cover theme-img filter grayscale-[60%] brightness-[0.3]" onerror="this.onerror=null; this.src='coach_allen_03_padwork.jpg';">
         <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/50 to-transparent"></div>
         <div class="relative z-10 text-center px-6 fade-up visible">
             <div class="flex items-center justify-center gap-4 mb-6">
@@ -353,7 +387,7 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-up">
                 <div class="relative h-[50vh] overflow-hidden group">
-                    <img src="course-private.jpg" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" onerror="this.src='https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1200';">
+                    <img src="course-private.jpg" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" onerror="this.onerror=null; this.src='coach_allen_03_padwork.jpg';">
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent opacity-70"></div>
                     <div class="absolute bottom-6 left-6">
                         <span class="text-brand-red text-[10px] font-mono tracking-[0.2em] border border-brand-red px-2 py-1 inline-block mb-2">ELITE FOCUS</span>
@@ -636,5 +670,6 @@
         }, observerOptions);
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
+    <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}</script>
 </body>
 </html>

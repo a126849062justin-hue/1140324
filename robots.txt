@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://a126849062justin-hue.github.io/1140324/sitemap.xml

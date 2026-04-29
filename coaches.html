@@ -7,8 +7,26 @@
     <meta property="og:title" content="HCF 戰鬥指揮官 | 沉浸式教練陣容">
     <meta property="og:description" content="只有從鮮血與勝利中走出來的現役戰士。HCF 新竹格鬥館頂級教練團隊。">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="hcf_logo_main.png">
-    
+    <meta property="og:image" content="https://a126849062justin-hue.github.io/1140324/hcf_logo_main.png">
+    <meta property="og:url" content="https://a126849062justin-hue.github.io/1140324/coaches.html">
+    <meta property="og:site_name" content="HCF 新竹格鬥館">
+    <meta property="og:locale" content="zh_TW">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HCF 戰鬥指揮官 | 沉浸式教練陣容">
+    <meta name="twitter:description" content="只有從鮮血與勝利中走出來的現役戰士。HCF 新竹格鬥館頂級教練團隊。">
+    <meta name="twitter:image" content="https://a126849062justin-hue.github.io/1140324/hcf_logo_main.png">
+    <meta name="description" content="只有從鮮血與勝利中走出來的現役戰士。HCF 新竹格鬥館頂級教練團隊。">
+    <link rel="canonical" href="https://a126849062justin-hue.github.io/1140324/coaches.html">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#E63946">
+    <link rel="icon" type="image/png" href="hcf_logo_main.png">
+    <link rel="apple-touch-icon" href="hcf_logo_main.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="HCF">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -84,7 +102,7 @@
         .theme-img { transition: filter 0.5s ease, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
         html.light-mode .theme-img { filter: grayscale(50%) brightness(0.8); }
         
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
             body, a, button, .cursor-pointer { cursor: none !important; }
             .custom-cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: #E63946; border-radius: 50%; z-index: 10000; pointer-events: none; transition: width 0.2s ease, height 0.2s ease; will-change: transform; }
             .custom-cursor-ring { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid rgba(230,57,70,0.5); border-radius: 50%; z-index: 9999; pointer-events: none; transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease; will-change: transform; }
@@ -115,6 +133,23 @@
         @media (min-width: 768px) {
             .text-mask-left { background: linear-gradient(to right, rgb(var(--color-bg) / 0.95) 0%, rgb(var(--color-bg) / 0.6) 40%, transparent 100%); }
             .text-mask-right { background: linear-gradient(to left, rgb(var(--color-bg) / 0.95) 0%, rgb(var(--color-bg) / 0.6) 40%, transparent 100%); }
+        }
+
+        @media (max-width: 767px) {
+          .glass-panel, [class*="backdrop-blur"] { backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; }
+        }
+        @supports not (backdrop-filter: blur(1px)) {
+          .glass-panel { background: rgb(var(--color-panel)) !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+          }
+          .custom-cursor-dot, .custom-cursor-ring { display: none !important; }
         }
     </style>
 </head>
@@ -166,7 +201,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button onclick="toggleTheme()" class="text-brand-muted hover:text-brand-red transition-colors interactive-el w-8 h-8 flex items-center justify-center text-lg" aria-label="Toggle Theme">
+            <button onclick="toggleTheme()" class="text-brand-muted hover:text-brand-red transition-colors interactive-el w-11 h-11 flex items-center justify-center text-lg" aria-label="Toggle Theme">
                 <i class="fa-solid fa-circle-half-stroke theme-icon"></i>
             </button>
             <a href="https://lin.ee/7lidUv0" target="_blank" class="hidden md:flex items-center gap-2 text-xs tracking-[0.1em] text-brand-muted hover:text-brand-text transition-colors interactive-el">
@@ -175,7 +210,7 @@
             <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="hidden md:block text-xs tracking-[0.2em] bg-brand-red text-white px-6 py-2.5 font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 shadow-[0_0_15px_rgba(230,57,70,0.3)] interactive-el magnetic-btn">
                 預約體驗
             </a>
-            <button onclick="toggleNavDrawer()" class="lg:hidden text-brand-text text-xl interactive-el w-10 h-10 flex items-center justify-center">
+            <button onclick="toggleNavDrawer()" class="lg:hidden text-brand-text text-xl interactive-el w-11 h-11 flex items-center justify-center">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
         </div>
@@ -517,11 +552,19 @@
         </div>
     </footer>
 
-    <a href="https://lin.ee/7lidUv0" target="_blank" class="fixed bottom-6 right-6 z-[70] bg-brand-red text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_5px_20px_rgba(230,57,70,0.5)] hover:scale-110 transition-transform group interactive-el">
+    <a href="https://lin.ee/7lidUv0" target="_blank" class="fixed bottom-20 md:bottom-6 right-6 z-[70] bg-brand-red text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_5px_20px_rgba(230,57,70,0.5)] hover:scale-110 transition-transform group interactive-el">
         <i class="fa-brands fa-line text-2xl group-hover:hidden"></i>
         <span class="hidden group-hover:block text-[10px] font-bold tracking-widest">預約</span>
     </a>
 
+    <div class="fixed bottom-0 left-0 right-0 z-[60] md:hidden bg-brand-bg/95 backdrop-blur-md border-t hairline p-3 flex gap-3">
+        <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="flex-1 text-center bg-brand-red text-white py-3 text-xs font-bold tracking-widest">
+            預約體驗
+        </a>
+        <a href="https://lin.ee/7lidUv0" target="_blank" class="flex-1 text-center border hairline text-brand-muted py-3 text-xs font-bold tracking-widest">
+            <i class="fa-brands fa-line mr-1"></i>LINE 諮詢
+        </a>
+    </div>
 
     <script>
         function toggleTheme() {
@@ -625,10 +668,12 @@
                     });
                 }
             });
-            requestAnimationFrame(handleScroll);
         }
-        
-        requestAnimationFrame(handleScroll);
+
+        let ticking = false;
+        function onScroll(){ if(!ticking){ requestAnimationFrame(()=>{ handleScroll(); ticking=false; }); ticking=true; } }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        handleScroll(); // 初次執行
 
         const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver((entries) => {
@@ -638,5 +683,6 @@
         }, observerOptions);
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
+    <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}</script>
 </body>
 </html>
