@@ -1,0 +1,17 @@
+{
+  "name": "hcf-merged-site",
+  "version": "1.0.0",
+  "description": "HCF 新竹格鬥館 — 沉浸式設計 + 內容/功能整合版",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./tw-input.css -o ./tw-build.css --minify",
+    "watch:css": "npx tailwindcss -i ./tw-input.css -o ./tw-build.css --watch"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.37.0",
+    "@google/generative-ai": "^0.21.0",
+    "@supabase/supabase-js": "^2.49.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
