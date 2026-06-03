@@ -3,60 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCF 專業課程 | 團體戰線 - 新竹最強團體格鬥</title>
-    <meta name="description" content="HCF 新竹格鬥館團體課程。感受團隊氛圍的極致燃脂體驗，包含集體暖身、體能心肺、技術指導與分組練習。">
-    <meta property="og:title" content="HCF 專業課程 | 團體戰線 - 新竹最強團體格鬥">
-    <meta property="og:description" content="HCF 新竹格鬥館團體課程。感受團隊氛圍的極致燃脂體驗，包含集體暖身、體能心肺、技術指導與分組練習。">
+    <title>HCF 團體課程課程 | Group Class | 新竹格鬥館</title>
+    <meta name="description" content="團體課是 HCF 的核心。在這裡，你不會孤單地對著鏡子流汗——一群目標一致的戰友會推著你前進。每堂 60 分鐘，從暖身到實戰，完整而扎實。">
+    <meta property="og:title" content="HCF 團體課程課程 | Group Class | 新竹格鬥館">
+    <meta property="og:description" content="團體課是 HCF 的核心。在這裡，你不會孤單地對著鏡子流汗——一群目標一致的戰友會推著你前進。每堂 60 分鐘，從暖身到實戰，完整而扎實。">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://a126849062justin-hue.github.io/1140324/hcf_logo_main.png">
-    <meta property="og:url" content="https://a126849062justin-hue.github.io/1140324/group-class.html">
+    <meta property="og:image" content="hcf_logo_main.png">
     <meta property="og:site_name" content="HCF 新竹格鬥館">
     <meta property="og:locale" content="zh_TW">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="HCF 專業課程 | 團體戰線 - 新竹最強團體格鬥">
-    <meta name="twitter:description" content="HCF 新竹格鬥館團體課程。感受團隊氛圍的極致燃脂體驗，包含集體暖身、體能心肺、技術指導與分組練習。">
-    <meta name="twitter:image" content="https://a126849062justin-hue.github.io/1140324/hcf_logo_main.png">
-    <link rel="canonical" href="https://a126849062justin-hue.github.io/1140324/group-class.html">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#E63946">
     <link rel="icon" type="image/png" href="hcf_logo_main.png">
     <link rel="apple-touch-icon" href="hcf_logo_main.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="HCF">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tw-build.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
+
     <script>
-        if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.classList.add('light-mode');
-        }
-        
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans TC"', 'sans-serif'],
-                        serif: ['"Cormorant Garamond"', 'serif'],
-                    },
-                    colors: { 
-                        brand: { 
-                            bg: 'rgb(var(--color-bg) / <alpha-value>)',
-                            panel: 'rgb(var(--color-panel) / <alpha-value>)',
-                            text: 'rgb(var(--color-text) / <alpha-value>)',
-                            border: 'rgb(var(--color-border) / <alpha-value>)',
-                            muted: 'rgb(var(--color-muted) / <alpha-value>)',
-                            red: '#E63946',
-                            redDark: '#A61C2E'
-                        } 
-                    }
-                }
-            }
-        }
+      (function(){
+        try {
+          if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light-mode');
+          var c = localStorage.getItem('hcf_accent');           // "230 57 70"
+          var d = localStorage.getItem('hcf_accent_dark');
+          if (c) document.documentElement.style.setProperty('--color-red', c);
+          if (d) document.documentElement.style.setProperty('--color-red-dark', d);
+        } catch(e){}
+      })();
     </script>
 
     <style>
@@ -66,9 +43,10 @@
             --color-text: 245 245 247;
             --color-border: 255 255 255;
             --color-muted: 156 163 175;
+            --color-red: 230 57 70;        /* accent — controlled by admin */
+            --color-red-dark: 166 28 46;
             --img-brightness: 0.35;
         }
-
         html.light-mode {
             --color-bg: 245 245 247;
             --color-panel: 255 255 255;
@@ -77,351 +55,238 @@
             --color-muted: 107 114 128;
             --img-brightness: 0.7;
         }
-
-        body { 
-            background-color: rgb(var(--color-bg)); 
-            color: rgb(var(--color-text)); 
-            overflow-x: hidden; 
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-        
+        body { background-color: rgb(var(--color-bg)); color: rgb(var(--color-text)); overflow-x: hidden; transition: background-color .5s ease, color .5s ease; }
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: rgb(var(--color-bg)); }
-        ::-webkit-scrollbar-thumb { background: rgb(var(--color-muted) / 0.5); border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #E63946; }
-
-        .hairline { border-color: rgb(var(--color-border) / 0.1); transition: border-color 0.5s ease; }
-        .glass-panel { 
-            background: rgb(var(--color-panel) / 0.85); 
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px); 
-            border-right: 1px solid rgb(var(--color-border) / 0.05); 
-            transition: background-color 0.5s ease, border-color 0.5s ease;
+        ::-webkit-scrollbar-thumb { background: rgb(var(--color-muted) / .5); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgb(var(--color-red)); }
+        .hairline { border-color: rgb(var(--color-border) / .1); transition: border-color .5s ease; }
+        .glass-panel { background: rgb(var(--color-panel) / .85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-right: 1px solid rgb(var(--color-border) / .05); transition: background-color .5s ease, border-color .5s ease; }
+        .theme-img { transition: filter .5s ease, transform 1.5s cubic-bezier(.16,1,.3,1); }
+        html.light-mode .theme-img { filter: grayscale(50%) brightness(.8); }
+        @media (min-width:1024px) and (hover:hover) and (pointer:fine) {
+            body,a,button,.cursor-pointer { cursor:none !important; }
+            .custom-cursor-dot { position:fixed; top:0; left:0; width:6px; height:6px; background:rgb(var(--color-red)); border-radius:50%; z-index:10000; pointer-events:none; transition:width .2s,height .2s; will-change:transform; }
+            .custom-cursor-ring { position:fixed; top:0; left:0; width:36px; height:36px; border:1px solid rgb(var(--color-red) / .5); border-radius:50%; z-index:9999; pointer-events:none; transition:width .2s,height .2s,border-color .2s,background-color .2s; will-change:transform; }
+            body.hovering .custom-cursor-dot { width:0; height:0; }
+            body.hovering .custom-cursor-ring { width:50px; height:50px; border-color:rgb(var(--color-red)); background:rgb(var(--color-red) / .1); backdrop-filter:blur(2px); }
         }
-        
-        .theme-img { transition: filter 0.5s ease, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
-        html.light-mode .theme-img { filter: grayscale(50%) brightness(0.8); }
-        
-        @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
-            body, a, button, .cursor-pointer { cursor: none !important; }
-            .custom-cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: #E63946; border-radius: 50%; z-index: 10000; pointer-events: none; transition: width 0.2s ease, height 0.2s ease; will-change: transform; }
-            .custom-cursor-ring { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid rgba(230,57,70,0.5); border-radius: 50%; z-index: 9999; pointer-events: none; transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease; will-change: transform; }
-            body.hovering .custom-cursor-dot { width: 0; height: 0; }
-            body.hovering .custom-cursor-ring { width: 50px; height: 50px; border-color: #E63946; background: rgba(230,57,70,0.1); backdrop-filter: blur(2px); }
-        }
-
-        .dropdown-menu { visibility: hidden; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
-        .group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateY(0); }
-
-        .fade-up { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 767px) {
-          .glass-panel, [class*="backdrop-blur"] { backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; }
-        }
-        @supports not (backdrop-filter: blur(1px)) {
-          .glass-panel { background: rgb(var(--color-panel)) !important; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          *, *::before, *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-            scroll-behavior: auto !important;
-          }
-          .custom-cursor-dot, .custom-cursor-ring { display: none !important; }
-        }
+        .dropdown-menu { visibility:hidden; opacity:0; transform:translateY(10px); transition:all .3s ease; }
+        .group:hover .dropdown-menu { visibility:visible; opacity:1; transform:translateY(0); }
+        .snap-container { scroll-snap-type:x mandatory; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+        .snap-container::-webkit-scrollbar { display:none; }
+        .snap-slide { scroll-snap-align:center; }
+        .fade-up { opacity:0; transform:translateY(30px); transition:all 1s cubic-bezier(.16,1,.3,1); }
+        .fade-up.visible { opacity:1; transform:translateY(0); }
+        /* ===== 戰術系統視覺 (對應 2026 課表海報) ===== */
+        :root { --mt:230 57 70; --sanda:234 179 8; --kb:148 163 184; --sc:34 197 94; }
+        .dot-grid { background-image: radial-gradient(rgb(var(--color-border) / .07) 1px, transparent 1px); background-size: 22px 22px; }
+        .dot-grid-dense { background-image: radial-gradient(rgb(var(--color-border) / .08) 1px, transparent 1px); background-size: 16px 16px; }
+        .sys-label { font-family:'Noto Sans TC',monospace; letter-spacing:.3em; font-size:10px; font-weight:700; }
+        .sys-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:rgb(var(--color-red)); box-shadow:0 0 8px rgb(var(--color-red)); animation:syspulse 2s infinite; }
+        @keyframes syspulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+        .lv-badge { font-family:monospace; font-size:10px; font-weight:800; letter-spacing:.1em; padding:2px 8px; border-radius:2px; }
+        .lv1 { background:rgb(var(--sc)); color:#04210f; }
+        .lv2 { background:rgb(var(--color-red)); color:#fff; }
+        .cat-mt{--cat:var(--mt)} .cat-sanda{--cat:var(--sanda)} .cat-kb{--cat:var(--kb)} .cat-sc{--cat:var(--sc)}
+        .class-card { position:relative; border:1px solid rgb(var(--color-border)/.08); background:rgb(var(--color-panel)/.6); transition:all .3s ease; overflow:hidden; }
+        .class-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:rgb(var(--cat,var(--color-red))); }
+        .class-card:hover { border-color:rgb(var(--cat,var(--color-red))/.6); transform:translateY(-2px); box-shadow:0 8px 24px rgb(0 0 0 / .3); }
+        .class-card.dimmed { opacity:.2; filter:grayscale(1); }
+        @media (max-width:767px){ .glass-panel,[class*="backdrop-blur"]{ backdrop-filter:blur(8px)!important; -webkit-backdrop-filter:blur(8px)!important; } }
+        @supports not (backdrop-filter: blur(1px)){ .glass-panel{ background:rgb(var(--color-panel))!important; } }
+        @media (prefers-reduced-motion: reduce){ *,*::before,*::after{ animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } .custom-cursor-dot,.custom-cursor-ring{ display:none!important; } }
     </style>
+
 </head>
 <body class="antialiased selection:bg-brand-red selection:text-white">
-
     <div class="custom-cursor-dot hidden md:block" id="cursor-dot"></div>
     <div class="custom-cursor-ring hidden md:block" id="cursor-ring"></div>
 
     <nav class="fixed w-full z-[80] transition-all duration-500 backdrop-blur-md bg-brand-bg/80 border-b hairline py-4 px-6 md:px-10 flex justify-between items-center" id="navbar">
-        <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity interactive-el group">
+        <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity interactive-el group" aria-label="HCF 首頁">
             <img src="hcf_logo_main.png" alt="HCF Logo" class="h-8 md:h-10 w-auto object-contain filter drop-shadow-md group-hover:scale-105 transition-transform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="hidden flex-col items-start justify-center">
-                <span class="text-2xl md:text-3xl font-black tracking-[0.2em] uppercase leading-none text-brand-text flex items-baseline">HCF<span class="text-brand-red text-4xl leading-[0.5]">.</span></span>
-            </div>
+            <div class="hidden flex-col items-start justify-center"><span class="text-2xl md:text-3xl font-black tracking-[0.2em] uppercase leading-none text-brand-text flex items-baseline">HCF<span class="text-brand-red text-4xl leading-[0.5]">.</span></span></div>
             <div class="flex flex-col items-start justify-center border-l border-brand-text/20 pl-3">
                 <span class="text-sm md:text-base font-black tracking-widest text-brand-text leading-tight">HCF</span>
                 <span class="text-[10px] md:text-xs font-bold tracking-[0.1em] text-brand-muted leading-tight">新竹格鬥館</span>
             </div>
         </a>
-        
-        <div class="hidden lg:flex items-center gap-8 text-xs tracking-[0.2em] font-medium text-brand-muted">
-            <a href="index.html" class="hover:text-brand-red transition-colors interactive-el">首頁</a>
-            <a href="index.html#news" class="hover:text-brand-red transition-colors interactive-el">最新消息</a>
-            <a href="index.html#philosophy" class="hover:text-brand-red transition-colors interactive-el">品牌哲學</a>
+        <div class="hidden lg:flex items-center gap-7 text-xs tracking-[0.2em] font-medium">
+            <a href="index.html" class="text-brand-muted hover:text-brand-red transition-colors interactive-el">首頁</a>
             <div class="relative group py-4">
-                <a href="index.html#horizontal-courses" class="hover:text-brand-red transition-colors flex items-center gap-1 interactive-el">
-                    課程介紹 <i class="fa-solid fa-angle-down text-[10px]"></i>
-                </a>
-                <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-0 w-48 bg-brand-panel/95 backdrop-blur-xl border hairline shadow-2xl py-3 flex flex-col gap-1 z-50 rounded-sm">
-                    <a href="group-class.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-red font-bold">團體課程</a>
-                    <a href="private-class.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">私人課程</a>
-                    <a href="index.html#horizontal-courses" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">泰拳訓練</a>
-                    <a href="index.html#horizontal-courses" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">踢拳訓練</a>
-                    <a href="index.html#horizontal-courses" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">散打訓練</a>
-                    <a href="index.html#horizontal-courses" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">肌力體能</a>
-                </div>
-            </div>
-            <a href="coaches.html" class="hover:text-brand-red transition-colors interactive-el">教練團隊</a>
-            <div class="relative group py-4">
-                <a href="index.html#pricing" class="hover:text-brand-red transition-colors flex items-center gap-1 interactive-el">
-                    課程方案 <i class="fa-solid fa-angle-down text-[10px]"></i>
-                </a>
-                <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-0 w-40 bg-brand-panel/95 backdrop-blur-xl border hairline shadow-2xl py-3 flex flex-col gap-1 z-50 rounded-sm">
-                    <a href="group-class.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-red font-bold">團體課程</a>
+                <a href="#" class="text-brand-red transition-colors flex items-center gap-1 interactive-el">課程介紹 <i class="fa-solid fa-angle-down text-[10px]"></i></a>
+                <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 w-52 bg-brand-panel/95 backdrop-blur-xl border hairline shadow-2xl py-3 flex flex-col gap-1 z-50 rounded-sm">
+                    <a href="muaythai.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">泰拳 Muay Thai</a>
+                    <a href="kickboxing.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">踢拳 Kickboxing</a>
+                    <a href="sanda.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">散打 Sanda</a>
+                    <a href="strength.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">肌力體能 S&amp;C</a>
+                    <div class="border-t hairline my-1"></div>
+                    <a href="group-class.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">團體課程</a>
                     <a href="private-class.html" class="px-6 py-2 hover:text-brand-red hover:bg-brand-border/5 transition-colors interactive-el text-brand-text">私人課程</a>
                 </div>
             </div>
-            <a href="index.html#faq" class="hover:text-brand-red transition-colors interactive-el">新手問答</a>
+            <a href="coaches.html" class="text-brand-muted hover:text-brand-red transition-colors interactive-el">教練團隊</a>
+            <a href="schedule.html" class="text-brand-muted hover:text-brand-red transition-colors interactive-el">最新課表</a>
+            <a href="pricing.html" class="text-brand-muted hover:text-brand-red transition-colors interactive-el">課程方案</a>
+            <a href="faq.html" class="text-brand-muted hover:text-brand-red transition-colors interactive-el">新手問答</a>
         </div>
-
         <div class="flex items-center gap-4">
-            <button onclick="toggleTheme()" class="text-brand-muted hover:text-brand-red transition-colors interactive-el w-11 h-11 flex items-center justify-center text-lg" aria-label="Toggle Theme">
-                <i class="fa-solid fa-circle-half-stroke theme-icon"></i>
-            </button>
-            <a href="https://lin.ee/7lidUv0" target="_blank" class="hidden md:flex items-center gap-2 text-xs tracking-[0.1em] text-brand-muted hover:text-brand-text transition-colors interactive-el">
-                <i class="fa-brands fa-line text-lg"></i> 專屬顧問
-            </a>
-            <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="hidden md:block text-xs tracking-[0.2em] bg-brand-red text-white px-6 py-2.5 font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 shadow-[0_0_15px_rgba(230,57,70,0.3)] interactive-el magnetic-btn">
-                預約體驗
-            </a>
-            <button onclick="toggleNavDrawer()" class="lg:hidden text-brand-text text-xl interactive-el w-11 h-11 flex items-center justify-center">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </button>
+            <button onclick="toggleTheme()" class="text-brand-muted hover:text-brand-red transition-colors interactive-el w-11 h-11 flex items-center justify-center text-lg" aria-label="切換明暗主題"><i class="fa-solid fa-circle-half-stroke theme-icon"></i></button>
+            <a href="https://lin.ee/7lidUv0" target="_blank" rel="noopener" class="hidden md:flex items-center gap-2 text-xs tracking-[0.1em] text-brand-muted hover:text-brand-text transition-colors interactive-el"><i class="fa-brands fa-line text-lg"></i> 專屬顧問</a>
+            <button onclick="openBooking()" class="hidden md:block text-xs tracking-[0.2em] bg-brand-red text-white px-6 py-2.5 font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 shadow-[0_0_15px_rgb(var(--color-red)/0.3)] interactive-el magnetic-btn">預約體驗</button>
+            <button onclick="toggleNavDrawer()" class="lg:hidden text-brand-text text-xl interactive-el w-11 h-11 flex items-center justify-center" aria-label="選單"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
     </nav>
 
     <div id="drawer-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-500" onclick="closeAllDrawers()"></div>
-
-    <aside id="nav-drawer" class="fixed top-0 right-0 w-[85%] md:w-[350px] h-[100dvh] glass-panel border-l border-r-0 hairline z-[100] transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col p-8 pt-20 overflow-y-auto lg:hidden">
-        <button onclick="closeAllDrawers()" class="absolute top-6 left-6 text-brand-muted hover:text-brand-red text-xl interactive-el"><i class="fa-solid fa-xmark"></i></button>
-        <div class="space-y-6 flex-grow text-lg font-bold tracking-widest">
-            <a href="index.html" class="block text-brand-text hover:text-brand-red interactive-el" onclick="closeAllDrawers()">首頁</a>
-            <a href="index.html#news" class="block text-brand-text hover:text-brand-red interactive-el" onclick="closeAllDrawers()">最新消息</a>
-            <a href="index.html#philosophy" class="block text-brand-text hover:text-brand-red interactive-el" onclick="closeAllDrawers()">品牌哲學</a>
-            <details class="group" open>
-                <summary class="text-brand-text hover:text-brand-red flex justify-between items-center cursor-pointer list-none outline-none interactive-el border-b hairline pb-2">
-                    課程介紹 <i class="fa-solid fa-plus text-xs group-open:rotate-45 transition-transform"></i>
-                </summary>
-                <div class="pl-4 py-3 space-y-4 text-sm text-brand-muted font-normal">
-                    <a href="group-class.html" class="block text-brand-red font-bold interactive-el" onclick="closeAllDrawers()">團體課程</a>
-                    <a href="private-class.html" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">私人課程</a>
-                    <a href="index.html#horizontal-courses" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">泰拳訓練</a>
-                    <a href="index.html#horizontal-courses" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">踢拳訓練</a>
-                    <a href="index.html#horizontal-courses" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">散打訓練</a>
-                    <a href="index.html#horizontal-courses" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">肌力體能</a>
-                </div>
-            </details>
-            <a href="coaches.html" class="block text-brand-text hover:text-brand-red interactive-el" onclick="closeAllDrawers()">教練團隊</a>
-            <details class="group">
-                <summary class="text-brand-text hover:text-brand-red flex justify-between items-center cursor-pointer list-none outline-none interactive-el border-b hairline pb-2">
-                    課程方案 <i class="fa-solid fa-plus text-xs group-open:rotate-45 transition-transform"></i>
-                </summary>
-                <div class="pl-4 py-3 space-y-4 text-sm text-brand-muted font-normal">
-                    <a href="group-class.html" class="block text-brand-red font-bold interactive-el" onclick="closeAllDrawers()">團體課程</a>
-                    <a href="private-class.html" class="block hover:text-brand-red interactive-el" onclick="closeAllDrawers()">私人課程</a>
-                </div>
-            </details>
-            <a href="index.html#faq" class="block text-brand-text hover:text-brand-red interactive-el" onclick="closeAllDrawers()">新手問答</a>
-        </div>
-        <div class="mt-8">
-            <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="block w-full text-center bg-brand-red text-white py-4 tracking-widest text-sm interactive-el shadow-[0_5px_15px_rgba(230,57,70,0.3)]">
-                預約體驗
-            </a>
+    <aside id="nav-drawer" class="fixed top-0 right-0 w-[85%] md:w-[350px] h-[100dvh] glass-panel border-l border-r-0 hairline z-[100] transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col p-8 pt-20 overflow-y-auto lg:hidden text-brand-text">
+        <button onclick="closeAllDrawers()" class="absolute top-6 right-6 text-brand-muted hover:text-brand-red text-xl interactive-el"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="flex flex-col gap-1 text-sm tracking-widest">
+            <a href="index.html" class="py-3 border-b hairline hover:text-brand-red transition-colors interactive-el">首頁</a>
+            <span class="pt-4 pb-1 text-[10px] text-brand-muted tracking-[0.3em]">課程介紹</span>
+            <a href="muaythai.html" class="py-2.5 pl-3 border-l hairline hover:text-brand-red transition-colors interactive-el">泰拳</a>
+            <a href="kickboxing.html" class="py-2.5 pl-3 border-l hairline hover:text-brand-red transition-colors interactive-el">踢拳</a>
+            <a href="sanda.html" class="py-2.5 pl-3 border-l hairline hover:text-brand-red transition-colors interactive-el">散打</a>
+            <a href="strength.html" class="py-2.5 pl-3 border-l hairline hover:text-brand-red transition-colors interactive-el">肌力體能</a>
+            <a href="group-class.html" class="py-2.5 pl-3 border-l hairline hover:text-brand-red transition-colors interactive-el">團體課程</a>
+            <a href="private-class.html" class="py-2.5 pl-3 border-l hairline hover:text-brand-red transition-colors interactive-el">私人課程</a>
+            <a href="coaches.html" class="py-3 mt-2 border-b border-t hairline hover:text-brand-red transition-colors interactive-el">教練團隊</a>
+            <a href="schedule.html" class="py-3 border-b hairline hover:text-brand-red transition-colors interactive-el">最新課表</a>
+            <a href="pricing.html" class="py-3 border-b hairline hover:text-brand-red transition-colors interactive-el">課程方案</a>
+            <a href="faq.html" class="py-3 border-b hairline hover:text-brand-red transition-colors interactive-el">新手問答</a>
+        </nav>
+        <button onclick="closeAllDrawers();openBooking()" class="mt-8 block w-full text-center bg-brand-red text-white py-4 tracking-widest text-sm interactive-el shadow-[0_5px_15px_rgb(var(--color-red)/0.3)]">預約 $400 體驗</button>
+        <div class="flex gap-3 mt-6 justify-center">
+            <a href="https://lin.ee/7lidUv0" target="_blank" rel="noopener" class="w-10 h-10 border hairline flex items-center justify-center hover:text-[#06C755] hover:border-[#06C755] transition-colors interactive-el"><i class="fa-brands fa-line"></i></a>
+            <a href="https://www.instagram.com/hc.combat2022/" target="_blank" rel="noopener" class="w-10 h-10 border hairline flex items-center justify-center hover:text-[#E1306C] hover:border-[#E1306C] transition-colors interactive-el"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://m.facebook.com/hsinchucombat/" target="_blank" rel="noopener" class="w-10 h-10 border hairline flex items-center justify-center hover:text-[#1877F2] hover:border-[#1877F2] transition-colors interactive-el"><i class="fa-brands fa-facebook-f"></i></a>
         </div>
     </aside>
 
-    <!-- Hero Section -->
-    <section class="relative w-full h-[80dvh] flex flex-col justify-center items-center overflow-hidden">
-        <img src="course-team.jpg" class="absolute inset-0 w-full h-full object-cover theme-img filter grayscale-[60%] brightness-[0.3]" onerror="this.onerror=null; this.src='coach_huang_03_padwork.jpg';">
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/50 to-transparent"></div>
+    <!-- HERO -->
+    <section class="relative w-full h-[85dvh] flex flex-col justify-center items-center overflow-hidden border-b hairline">
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover theme-img filter grayscale brightness-[0.3]" poster="course_muaythai.jpg" onerror="this.style.display='none'"><source src="course_muaythai.mp4" type="video/mp4"></video>
+            <img src="course_muaythai.jpg" class="absolute inset-0 w-full h-full object-cover theme-img filter grayscale brightness-[0.3] -z-10" alt="團體課程" loading="eager">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/40 to-brand-bg/70"></div>
+        </div>
         <div class="relative z-10 text-center px-6 fade-up visible">
-            <div class="flex items-center justify-center gap-4 mb-6">
-                <div class="w-12 h-[1px] bg-brand-red"></div>
-                <span class="text-brand-red text-[10px] font-mono tracking-[0.4em] font-bold">TEAM BATTLE / 戰鬥協定</span>
-                <div class="w-12 h-[1px] bg-brand-red"></div>
-            </div>
-            <h1 class="text-5xl md:text-8xl font-black tracking-widest text-brand-text uppercase mb-6">
-                團體<span class="text-brand-red">戰線</span>
-            </h1>
-            <p class="text-sm md:text-base text-brand-muted max-w-2xl mx-auto leading-loose tracking-wider">
-                不是一個人撐著，是一整支隊伍的心肺在燃燒。<br>新竹最強的團體格鬥訓練，從此刻開始覺醒。
-            </p>
+            <div class="flex items-center justify-center gap-4 mb-6"><div class="w-10 h-[1px] bg-brand-red"></div><p class="text-xs md:text-sm tracking-[0.4em] text-brand-red uppercase font-bold">Group Class</p><div class="w-10 h-[1px] bg-brand-red"></div></div>
+            <h1 class="text-6xl sm:text-8xl md:text-9xl font-black tracking-widest text-white drop-shadow-xl mb-4">團體課程</h1>
+            <p class="text-brand-muted text-sm md:text-base tracking-[0.3em] mb-2">和戰友一起變強</p>
+            <p class="text-white/80 text-base md:text-lg tracking-wider font-light">一個人練得久，一群人練得遠。</p>
+            <button onclick="openBooking('mt-trial')" class="mt-10 bg-brand-red text-white px-10 py-4 text-xs tracking-[0.2em] font-bold hover:bg-white hover:text-brand-bg transition-colors duration-300 shadow-[0_0_25px_rgb(var(--color-red)/0.4)] interactive-el magnetic-btn">預約 $400 體驗</button>
         </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
-            <div class="w-[1px] h-12 bg-gradient-to-b from-brand-red to-transparent"></div>
+        <p class="absolute bottom-8 text-[10px] font-mono text-white/50 tracking-[0.3em] animate-pulse">SCROLL ↓</p>
+    </section>
+
+    <!-- LEAD -->
+    <section class="py-28 px-6 md:px-12 max-w-4xl mx-auto text-center">
+        <p class="text-xl md:text-2xl text-brand-text font-light leading-loose tracking-wider fade-up">團體課是 HCF 的核心。在這裡，你不會孤單地對著鏡子流汗——一群目標一致的戰友會推著你前進。每堂 60 分鐘，從暖身到實戰，完整而扎實。</p>
+    </section>
+
+    <!-- WHY -->
+    <section class="py-24 px-6 md:px-12 bg-brand-panel border-y hairline transition-colors duration-500">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 fade-up"><span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-4 py-2 inline-block mb-6">WHY GROUP</span><h2 class="text-4xl md:text-5xl font-black tracking-widest text-brand-text">為什麼練團體課程</h2></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border hairline bg-brand-bg p-8 hover:border-brand-red/50 transition-colors fade-up">
+                    <div class="w-12 h-12 border border-brand-red/40 text-brand-red flex items-center justify-center mb-5 text-xl"><i class="fa-solid fa-people-group"></i></div>
+                    <h3 class="text-lg font-black tracking-widest text-brand-text mb-3">團隊氛圍推著你前進</h3>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider">有人一起流汗、一起喊聲，你會發現自己能撐得比想像中更久。</p>
+                </div>
+                <div class="border hairline bg-brand-bg p-8 hover:border-brand-red/50 transition-colors fade-up">
+                    <div class="w-12 h-12 border border-brand-red/40 text-brand-red flex items-center justify-center mb-5 text-xl"><i class="fa-solid fa-clock"></i></div>
+                    <h3 class="text-lg font-black tracking-widest text-brand-text mb-3">結構完整的 60 分鐘</h3>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider">集體暖身、體能心肺、技術指導、分組靶修，一堂課把該練的都練到。</p>
+                </div>
+                <div class="border hairline bg-brand-bg p-8 hover:border-brand-red/50 transition-colors fade-up">
+                    <div class="w-12 h-12 border border-brand-red/40 text-brand-red flex items-center justify-center mb-5 text-xl"><i class="fa-solid fa-coins"></i></div>
+                    <h3 class="text-lg font-black tracking-widest text-brand-text mb-3">最划算的入門選擇</h3>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider">體驗只要 $400，無限方案每月暢練，是最沒有負擔的開始方式。</p>
+                </div></div>
         </div>
     </section>
 
-    <!-- 覺醒前置協定 -->
-    <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="text-center mb-16 fade-up">
-            <span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-4 py-2 inline-block mb-6">PRE-PROTOCOL / 覺醒前置協定</span>
-            <h2 class="text-4xl md:text-6xl font-black tracking-widest text-brand-text">每堂課的鐵律</h2>
-            <p class="text-brand-muted mt-4 tracking-wider text-sm">在真正的戰鬥模組開始前，你的身體必須先完成以下三道程序。</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="border hairline p-8 hover:border-brand-red/50 transition-colors group fade-up">
-                <div class="text-5xl font-serif italic text-brand-red mb-6 opacity-60">01</div>
-                <h3 class="text-xl font-black tracking-widest text-brand-text mb-3">戰鬥武裝</h3>
-                <p class="text-sm text-brand-muted leading-relaxed tracking-wider">手綁帶纏繞、拳套上緊。這不只是裝備，是進入戰鬥意識的儀式。每一圈纏繞，都是對自己的承諾。</p>
-                <div class="mt-6 pt-6 border-t hairline">
-                    <span class="text-[10px] font-mono text-brand-muted tracking-widest">DURATION / 10 MIN</span>
-                </div>
-            </div>
-            <div class="border hairline p-8 hover:border-brand-red/50 transition-colors group fade-up">
-                <div class="text-5xl font-serif italic text-brand-red mb-6 opacity-60">02</div>
-                <h3 class="text-xl font-black tracking-widest text-brand-text mb-3">重裝防護</h3>
-                <p class="text-sm text-brand-muted leading-relaxed tracking-wider">動態熱身啟動關節，針對肩、腰、髖、膝進行功能性活化。保護你的身體結構，讓每一次擊打都能輸出最大效率。</p>
-                <div class="mt-6 pt-6 border-t hairline">
-                    <span class="text-[10px] font-mono text-brand-muted tracking-widest">DURATION / 10 MIN</span>
-                </div>
-            </div>
-            <div class="border hairline p-8 hover:border-brand-red/50 transition-colors group fade-up">
-                <div class="text-5xl font-serif italic text-brand-red mb-6 opacity-60">03</div>
-                <h3 class="text-xl font-black tracking-widest text-brand-text mb-3">心智歸零</h3>
-                <p class="text-sm text-brand-muted leading-relaxed tracking-wider">影子拳訓練搭配節奏控制。清除雜念，讓身體進入最敏銳的備戰狀態。節奏感決定你在擂台上的生存能力。</p>
-                <div class="mt-6 pt-6 border-t hairline">
-                    <span class="text-[10px] font-mono text-brand-muted tracking-widest">DURATION / 10 MIN</span>
-                </div>
-            </div>
+    <!-- LEARN -->
+    <section class="py-24 px-6 md:px-12 max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="fade-up"><span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-4 py-2 inline-block mb-6">CURRICULUM</span><h2 class="text-4xl md:text-5xl font-black tracking-widest text-brand-text mb-4">你會學到</h2><p class="text-brand-muted text-sm tracking-wider leading-loose">從零到能實戰，我們把每一步都拆解清楚，讓你的進步看得見。</p></div>
+            <ul class="space-y-5">
+                    <li class="flex items-start gap-4 fade-up"><span class="text-brand-red font-mono text-sm mt-0.5">01</span><span class="text-brand-text tracking-wider">動態暖身與關節活動</span></li>
+                    <li class="flex items-start gap-4 fade-up"><span class="text-brand-red font-mono text-sm mt-0.5">02</span><span class="text-brand-text tracking-wider">體能與心肺強化</span></li>
+                    <li class="flex items-start gap-4 fade-up"><span class="text-brand-red font-mono text-sm mt-0.5">03</span><span class="text-brand-text tracking-wider">當日主題技術教學（泰拳/踢拳/散打輪替）</span></li>
+                    <li class="flex items-start gap-4 fade-up"><span class="text-brand-red font-mono text-sm mt-0.5">04</span><span class="text-brand-text tracking-wider">分組靶位對練</span></li>
+                    <li class="flex items-start gap-4 fade-up"><span class="text-brand-red font-mono text-sm mt-0.5">05</span><span class="text-brand-text tracking-wider">收操伸展與恢復</span></li></ul>
         </div>
     </section>
 
-    <!-- 高壓戰鬥模組 -->
-    <section class="py-24 bg-brand-panel border-y hairline transition-colors duration-500">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-16 fade-up">
-                <span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-4 py-2 inline-block mb-6">BATTLE MODULE / 高壓戰鬥模組</span>
-                <h2 class="text-4xl md:text-6xl font-black tracking-widest text-brand-text">核心訓練單元</h2>
-                <p class="text-brand-muted mt-4 tracking-wider text-sm">每個模組都是一次系統性的身體改造。選擇你的戰鬥時間。</p>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-brand-bg border hairline p-8 hover:border-brand-red/50 transition-all duration-300 group fade-up interactive-el">
-                    <div class="w-12 h-12 bg-brand-red/10 border border-brand-red/30 flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:border-brand-red transition-colors">
-                        <span class="text-brand-red group-hover:text-white font-mono font-bold text-sm transition-colors">15m</span>
-                    </div>
-                    <h3 class="text-lg font-black tracking-widest text-brand-text mb-3">燃脂心肺</h3>
-                    <p class="text-xs text-brand-muted leading-relaxed tracking-wider">高強度間歇訓練，快速拉升心率，在最短時間榨出最大脂肪燃燒效率。</p>
-                    <ul class="mt-4 space-y-2 text-xs font-mono text-brand-muted">
-                        <li><span class="text-brand-red">→</span> 跳繩衝刺</li>
-                        <li><span class="text-brand-red">→</span> 體重爆發訓練</li>
-                        <li><span class="text-brand-red">→</span> 核心激活</li>
-                    </ul>
+    <!-- FOR WHO -->
+    <section class="py-24 px-6 md:px-12 bg-brand-panel border-y hairline transition-colors duration-500">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-up"><span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-4 py-2 inline-block mb-6">WHO IS IT FOR</span><h2 class="text-4xl md:text-5xl font-black tracking-widest text-brand-text">這堂課適合你嗎？</h2></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="border hairline bg-brand-panel p-6 hover:border-brand-red/50 transition-colors fade-up">
+                    <h4 class="text-brand-text font-bold tracking-widest mb-2 flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i>喜歡熱血氛圍</h4>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider">一群人一起練，動力完全不一樣。</p>
                 </div>
-                <div class="bg-brand-bg border hairline p-8 hover:border-brand-red/50 transition-all duration-300 group fade-up interactive-el">
-                    <div class="w-12 h-12 bg-brand-red/10 border border-brand-red/30 flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:border-brand-red transition-colors">
-                        <span class="text-brand-red group-hover:text-white font-mono font-bold text-sm transition-colors">10m</span>
-                    </div>
-                    <h3 class="text-lg font-black tracking-widest text-brand-text mb-3">技術指導</h3>
-                    <p class="text-xs text-brand-muted leading-relaxed tracking-wider">教練帶領拆解本週核心技術動作，從慢動作到全速，建立正確的肌肉記憶。</p>
-                    <ul class="mt-4 space-y-2 text-xs font-mono text-brand-muted">
-                        <li><span class="text-brand-red">→</span> 動作分解示範</li>
-                        <li><span class="text-brand-red">→</span> 個別修正指導</li>
-                        <li><span class="text-brand-red">→</span> 速度漸進練習</li>
-                    </ul>
+                <div class="border hairline bg-brand-panel p-6 hover:border-brand-red/50 transition-colors fade-up">
+                    <h4 class="text-brand-text font-bold tracking-widest mb-2 flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i>預算有限的新手</h4>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider">$400 體驗，無痛開始。</p>
                 </div>
-                <div class="bg-brand-bg border hairline p-8 hover:border-brand-red/50 transition-all duration-300 group fade-up interactive-el">
-                    <div class="w-12 h-12 bg-brand-red/10 border border-brand-red/30 flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:border-brand-red transition-colors">
-                        <span class="text-brand-red group-hover:text-white font-mono font-bold text-sm transition-colors">20m</span>
-                    </div>
-                    <h3 class="text-lg font-black tracking-widest text-brand-text mb-3">靶位對練</h3>
-                    <p class="text-xs text-brand-muted leading-relaxed tracking-wider">分組輪替靶位擊打訓練。真實的衝擊感是最誠實的進步反饋，沙包和靶絕不說謊。</p>
-                    <ul class="mt-4 space-y-2 text-xs font-mono text-brand-muted">
-                        <li><span class="text-brand-red">→</span> 雙人靶位對打</li>
-                        <li><span class="text-brand-red">→</span> 連擊組合訓練</li>
-                        <li><span class="text-brand-red">→</span> 節奏控制練習</li>
-                    </ul>
+                <div class="border hairline bg-brand-panel p-6 hover:border-brand-red/50 transition-colors fade-up">
+                    <h4 class="text-brand-text font-bold tracking-widest mb-2 flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i>想規律運動</h4>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider">固定課表，幫你養成習慣。</p>
                 </div>
-                <div class="bg-brand-bg border hairline p-8 hover:border-brand-red/50 transition-all duration-300 group fade-up interactive-el">
-                    <div class="w-12 h-12 bg-brand-red/10 border border-brand-red/30 flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:border-brand-red transition-colors">
-                        <span class="text-brand-red group-hover:text-white font-mono font-bold text-sm transition-colors">25m</span>
-                    </div>
-                    <h3 class="text-lg font-black tracking-widest text-brand-text mb-3">實戰收尾</h3>
-                    <p class="text-xs text-brand-muted leading-relaxed tracking-wider">最後燃盡。全力輸出收尾訓練加上緩和伸展，讓身體在高峰後完整回歸，避免隔日肌肉損傷。</p>
-                    <ul class="mt-4 space-y-2 text-xs font-mono text-brand-muted">
-                        <li><span class="text-brand-red">→</span> 全力輸出衝刺</li>
-                        <li><span class="text-brand-red">→</span> 動態緩和</li>
-                        <li><span class="text-brand-red">→</span> 靜態伸展修復</li>
-                    </ul>
-                </div>
-            </div>
+                <div class="border hairline bg-brand-panel p-6 hover:border-brand-red/50 transition-colors fade-up">
+                    <h4 class="text-brand-text font-bold tracking-widest mb-2 flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i>想認識同好</h4>
+                    <p class="text-sm text-brand-muted leading-relaxed tracking-wider">在這裡，戰友就是朋友。</p>
+                </div></div>
         </div>
     </section>
 
-    <!-- 圖片區域 -->
-    <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-up">
-            <div class="relative h-[50vh] overflow-hidden group">
-                <img src="course-team.jpg" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" onerror="this.onerror=null; this.src='coach_huang_03_padwork.jpg';">
-                <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent opacity-70"></div>
-                <div class="absolute bottom-6 left-6">
-                    <span class="text-brand-red text-[10px] font-mono tracking-[0.2em] border border-brand-red px-2 py-1 inline-block mb-2">TEAM ENERGY</span>
-                    <h3 class="text-2xl font-black text-white tracking-widest">集體燃燒</h3>
-                </div>
-            </div>
-            <div class="relative h-[50vh] overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1549719386-74dfc97dd4fc?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" loading="lazy">
-                <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent opacity-70"></div>
-                <div class="absolute bottom-6 left-6">
-                    <span class="text-brand-red text-[10px] font-mono tracking-[0.2em] border border-brand-red px-2 py-1 inline-block mb-2">TECHNIQUE</span>
-                    <h3 class="text-2xl font-black text-white tracking-widest">技術磨礪</h3>
-                </div>
-            </div>
-        </div>
+    <!-- FAQ -->
+    <section class="py-24 px-6 md:px-12 max-w-4xl mx-auto">
+        <div class="text-center mb-16 fade-up"><span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-4 py-2 inline-block mb-6">FAQ</span><h2 class="text-4xl md:text-5xl font-black tracking-widest text-brand-text">關於團體課程，你想問的</h2></div>
+        <div class="space-y-4 fade-up">
+                <details class="group border hairline bg-brand-bg hover:border-brand-red/50 transition-colors">
+                    <summary class="flex justify-between items-center px-8 py-6 cursor-pointer list-none outline-none interactive-el"><span class="text-brand-text font-bold tracking-widest">團體課一班大概多少人？</span><i class="fa-solid fa-plus text-brand-red text-sm group-open:rotate-45 transition-transform duration-300"></i></summary>
+                    <div class="px-8 pb-6 text-sm text-brand-muted leading-relaxed tracking-wider border-t hairline pt-6">採小班制，教練能照顧到每一位學員，不用擔心被忽略。</div>
+                </details>
+                <details class="group border hairline bg-brand-bg hover:border-brand-red/50 transition-colors">
+                    <summary class="flex justify-between items-center px-8 py-6 cursor-pointer list-none outline-none interactive-el"><span class="text-brand-text font-bold tracking-widest">跟不上大家怎麼辦？</span><i class="fa-solid fa-plus text-brand-red text-sm group-open:rotate-45 transition-transform duration-300"></i></summary>
+                    <div class="px-8 pb-6 text-sm text-brand-muted leading-relaxed tracking-wider border-t hairline pt-6">教練會依個人狀況調整，每個人都有自己的節奏，不需要勉強。</div>
+                </details>
+                <details class="group border hairline bg-brand-bg hover:border-brand-red/50 transition-colors">
+                    <summary class="flex justify-between items-center px-8 py-6 cursor-pointer list-none outline-none interactive-el"><span class="text-brand-text font-bold tracking-widest">團體課有分程度嗎？</span><i class="fa-solid fa-plus text-brand-red text-sm group-open:rotate-45 transition-transform duration-300"></i></summary>
+                    <div class="px-8 pb-6 text-sm text-brand-muted leading-relaxed tracking-wider border-t hairline pt-6">課程設計讓新手與老手都能各取所需，新手練基礎，老手練細節與強度。</div>
+                </details></div>
     </section>
 
-    <!-- CTA 底部預約區域 -->
+    <!-- CTA -->
     <section class="py-32 px-6 text-center bg-brand-panel border-y hairline transition-colors duration-500">
-        <div class="max-w-2xl mx-auto fade-up">
-            <div class="flex items-center justify-center gap-4 mb-8">
-                <div class="w-16 h-[1px] bg-brand-red"></div>
-                <span class="text-brand-red text-[10px] font-mono tracking-[0.4em]">JOIN THE BATTLE</span>
-                <div class="w-16 h-[1px] bg-brand-red"></div>
-            </div>
-            <h2 class="text-4xl md:text-6xl font-black tracking-widest text-brand-text mb-6">
-                你的第一堂課<br><span class="text-brand-red">從今天開始</span>
-            </h2>
-            <p class="text-brand-muted text-sm leading-loose tracking-wider mb-12">
-                不需要任何格鬥基礎。只需要你願意踏進來，<br>剩下的交給我們。
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="bg-brand-red text-white px-12 py-4 font-bold tracking-[0.2em] text-sm hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 shadow-[0_0_30px_rgba(230,57,70,0.4)] interactive-el magnetic-btn">
-                    立即預約體驗課
-                </a>
-                <a href="https://lin.ee/7lidUv0" target="_blank" class="border hairline text-brand-muted px-12 py-4 font-bold tracking-[0.2em] text-sm hover:border-brand-red hover:text-brand-red transition-colors duration-300 interactive-el">
-                    <i class="fa-brands fa-line mr-2"></i>LINE 諮詢
-                </a>
-            </div>
+        <div class="max-w-3xl mx-auto fade-up">
+            <h2 class="text-3xl md:text-5xl font-light tracking-[0.15em] text-brand-text mb-6">準備好了嗎？<span class="text-brand-red font-serif italic block mt-3">第一拳，從 $400 開始。</span></h2>
+            <p class="text-brand-muted text-sm tracking-wider leading-loose mb-10">運動服來就好，裝備全免費，教練全程帶你。今天，就給自己一個開始的理由。</p>
+            <button onclick="openBooking('mt-trial')" class="bg-brand-red text-white px-12 py-4 text-xs tracking-[0.2em] font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 shadow-[0_0_25px_rgb(var(--color-red)/0.4)] interactive-el magnetic-btn">立即預約體驗</button>
         </div>
     </section>
 
-    <footer class="bg-brand-bg pt-24 pb-20 md:pb-12 border-t hairline relative z-10 transition-colors duration-500">
+    <footer class="bg-brand-bg pt-24 pb-24 md:pb-12 border-t hairline relative z-10 transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
                 <div class="lg:col-span-5 fade-up">
                     <div class="flex items-end gap-4 mb-6 opacity-90">
-                        <img src="hcf_logo_main.png" alt="HCF Logo" class="h-16 w-auto object-contain filter drop-shadow-md" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="hidden text-7xl font-black tracking-widest uppercase text-brand-text leading-none">HCF<span class="text-brand-red">.</span></div>
-                        <div class="pb-1">
-                            <h2 class="text-xl font-black tracking-widest text-brand-text">HCF 新竹格鬥館</h2>
-                        </div>
+                        <img src="hcf_logo_main.png" alt="HCF Logo" class="h-14 w-auto object-contain" loading="lazy" onerror="this.style.display='none'">
+                        <h2 class="text-xl font-black tracking-widest text-brand-text pb-1">HCF 新竹格鬥館</h2>
                     </div>
-                    
                     <div class="space-y-4 text-sm text-brand-muted leading-loose tracking-wider text-justify">
-                        <p>HCF 新竹格鬥致力於推廣格鬥運動，不是只有外人眼中的暴力，而是一種<strong class="text-brand-text">精神</strong>。</p>
-                        <p>人生有時候就像一場拳賽，我們都曾被不如意的事情一次次擊倒。<br>但別害怕，站起來。<br>HCF 的精神不僅是格鬥，更是關於如何在逆境中重生，看到你自己有多強大。</p>
+                        <p>我們相信格鬥不是暴力，而是一種<strong class="text-brand-text">面對自己的方式</strong>。人生像一場拳賽，會被擊倒，但真正重要的是——你能不能再站起來。</p>
+                        <p>在 HCF，你練的不只是拳，是把自己重新打造一遍的勇氣。</p>
                     </div>
                 </div>
-                
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 lg:pl-10 fade-up">
                     <div class="md:col-span-2 space-y-8">
                         <div>
@@ -434,143 +299,156 @@
                         <div>
                             <h4 class="text-brand-text font-bold tracking-widest mb-4 border-l-2 border-brand-red pl-2">基地座標</h4>
                             <ul class="text-sm text-brand-muted space-y-3">
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-location-dot mt-1 text-brand-red w-4"></i> 
-                                    <a href="https://maps.app.goo.gl/Mee8hr4Xcr53UWy37" target="_blank" class="hover:text-brand-text transition-colors interactive-el border-b border-transparent hover:border-brand-text pb-0.5">新竹市北區林森路301號2樓</a>
-                                </li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-brand-red w-4"></i> <span class="font-mono">0925-571-225</span></li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-brand-red w-4"></i> <span class="font-mono text-xs">hsinchucombat2022@gmail.com</span></li>
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-location-dot mt-1 text-brand-red w-4"></i><a href="https://maps.app.goo.gl/Mee8hr4Xcr53UWy37" target="_blank" rel="noopener" class="hover:text-brand-text transition-colors interactive-el border-b border-transparent hover:border-brand-text pb-0.5">新竹市北區林森路301號2樓</a></li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-brand-red w-4"></i><span class="font-mono">0925-571-225</span></li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-brand-red w-4"></i><span class="font-mono text-xs">hsinchucombat2022@gmail.com</span></li>
                             </ul>
                         </div>
                     </div>
                     <div>
-                        <h4 class="text-brand-text font-bold tracking-widest mb-4 border-l-2 border-brand-red pl-2">選單連結</h4>
+                        <h4 class="text-brand-text font-bold tracking-widest mb-4 border-l-2 border-brand-red pl-2">快速連結</h4>
                         <ul class="text-sm text-brand-muted space-y-3">
-                            <li><a href="index.html" class="hover:text-brand-red transition-colors interactive-el">首頁</a></li>
-                            <li><a href="index.html#news" class="hover:text-brand-red transition-colors interactive-el">最新消息</a></li>
-                            <li><a href="index.html#philosophy" class="hover:text-brand-red transition-colors interactive-el">品牌哲學</a></li>
-                            <li class="group">
-                                <span class="text-brand-text cursor-default">課程介紹</span>
-                                <ul class="pl-3 mt-2 space-y-2 text-xs border-l hairline ml-1">
-                                    <li><a href="group-class.html" class="text-brand-red font-bold transition-colors interactive-el">團體課程</a></li>
-                                    <li><a href="private-class.html" class="hover:text-brand-red transition-colors interactive-el">私人課程</a></li>
-                                    <li><a href="index.html#horizontal-courses" class="hover:text-brand-red transition-colors interactive-el">四大專業特訓</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="muaythai.html" class="hover:text-brand-red transition-colors interactive-el">泰拳</a></li>
+                            <li><a href="kickboxing.html" class="hover:text-brand-red transition-colors interactive-el">踢拳</a></li>
+                            <li><a href="sanda.html" class="hover:text-brand-red transition-colors interactive-el">散打</a></li>
+                            <li><a href="strength.html" class="hover:text-brand-red transition-colors interactive-el">肌力體能</a></li>
                             <li><a href="coaches.html" class="hover:text-brand-red transition-colors interactive-el">教練團隊</a></li>
-                            <li><a href="index.html#pricing" class="hover:text-brand-red transition-colors interactive-el">課程方案</a></li>
-                            <li><a href="index.html#faq" class="hover:text-brand-red transition-colors interactive-el">新手問答</a></li>
+                            <li><a href="schedule.html" class="hover:text-brand-red transition-colors interactive-el">最新課表</a></li>
+                            <li><a href="pricing.html" class="hover:text-brand-red transition-colors interactive-el">課程方案</a></li>
+                            <li><a href="faq.html" class="hover:text-brand-red transition-colors interactive-el">新手問答</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t hairline gap-6">
                 <div class="flex flex-wrap justify-center gap-3">
-                    <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="w-10 h-10 bg-brand-red text-white flex items-center justify-center hover:bg-brand-text hover:text-brand-bg transition-colors interactive-el shadow-lg" title="預約體驗"><i class="fa-solid fa-bolt"></i></a>
-                    <a href="https://lin.ee/7lidUv0" target="_blank" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#06C755] hover:text-[#06C755] transition-colors interactive-el magnetic-btn" title="官方 LINE"><i class="fa-brands fa-line text-lg"></i></a>
-                    <a href="https://www.instagram.com/hc.combat2022/" target="_blank" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#E1306C] hover:text-[#E1306C] transition-colors interactive-el magnetic-btn" title="Instagram 基地實況"><i class="fa-brands fa-instagram text-lg"></i></a>
-                    <a href="https://m.facebook.com/hsinchucombat/" target="_blank" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#1877F2] hover:text-[#1877F2] transition-colors interactive-el magnetic-btn" title="Facebook 賽事公告"><i class="fa-brands fa-facebook-f text-lg"></i></a>
-                    <a href="https://youtube.com/playlist?list=PLFtibVDr-YTBsPUoEfClpei2ttq1mGtKN&si=y6yMvAKxk_vUSrN7" target="_blank" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#FF0000] hover:text-[#FF0000] transition-colors interactive-el magnetic-btn" title="YouTube 賽事影片"><i class="fa-brands fa-youtube text-lg"></i></a>
+                    <button onclick="openBooking()" class="w-10 h-10 bg-brand-red text-white flex items-center justify-center hover:bg-brand-text hover:text-brand-bg transition-colors interactive-el shadow-lg" title="預約體驗"><i class="fa-solid fa-bolt"></i></button>
+                    <a href="https://lin.ee/7lidUv0" target="_blank" rel="noopener" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#06C755] hover:text-[#06C755] transition-colors interactive-el magnetic-btn" title="官方 LINE"><i class="fa-brands fa-line text-lg"></i></a>
+                    <a href="https://www.instagram.com/hc.combat2022/" target="_blank" rel="noopener" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#E1306C] hover:text-[#E1306C] transition-colors interactive-el magnetic-btn" title="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="https://m.facebook.com/hsinchucombat/" target="_blank" rel="noopener" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#1877F2] hover:text-[#1877F2] transition-colors interactive-el magnetic-btn" title="Facebook"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+                    <a href="https://youtube.com/playlist?list=PLFtibVDr-YTBsPUoEfClpei2ttq1mGtKN" target="_blank" rel="noopener" class="w-10 h-10 border hairline text-brand-muted flex items-center justify-center hover:border-[#FF0000] hover:text-[#FF0000] transition-colors interactive-el magnetic-btn" title="YouTube"><i class="fa-brands fa-youtube text-lg"></i></a>
                 </div>
-                <div class="text-[10px] text-brand-muted font-mono tracking-widest text-center md:text-right">
-                    <p>© 2026 HCF COMBAT SYSTEM. ALL RIGHTS RESERVED.</p>
-                </div>
+                <div class="text-[10px] text-brand-muted font-mono tracking-widest text-center md:text-right"><p>© 2026 HCF COMBAT SYSTEM. ALL RIGHTS RESERVED.</p></div>
             </div>
         </div>
     </footer>
 
-    <a href="https://lin.ee/7lidUv0" target="_blank" class="fixed bottom-20 md:bottom-6 right-6 z-[70] bg-brand-red text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_5px_20px_rgba(230,57,70,0.5)] hover:scale-110 transition-transform group interactive-el">
-        <i class="fa-brands fa-line text-2xl group-hover:hidden"></i>
-        <span class="hidden group-hover:block text-[10px] font-bold tracking-widest">預約</span>
-    </a>
-
     <div class="fixed bottom-0 left-0 right-0 z-[60] md:hidden bg-brand-bg/95 backdrop-blur-md border-t hairline p-3 flex gap-3">
-        <a href="https://www.fit-book.com.tw/hsinchucombat/plan/588" target="_blank" class="flex-1 text-center bg-brand-red text-white py-3 text-xs font-bold tracking-widest">
-            預約體驗
-        </a>
-        <a href="https://lin.ee/7lidUv0" target="_blank" class="flex-1 text-center border hairline text-brand-muted py-3 text-xs font-bold tracking-widest">
-            <i class="fa-brands fa-line mr-1"></i>LINE 諮詢
-        </a>
+        <button onclick="openBooking()" class="flex-1 text-center bg-brand-red text-white py-3 text-xs font-bold tracking-widest">預約體驗</button>
+        <a href="https://lin.ee/7lidUv0" target="_blank" rel="noopener" class="flex-1 text-center border hairline text-brand-muted py-3 text-xs font-bold tracking-widest"><i class="fa-brands fa-line mr-1"></i>LINE 諮詢</a>
+    </div>
+
+    <!-- AI 智能鯊魚教練 -->
+    <button id="ai-fab" onclick="toggleAIChat()" class="fixed bottom-36 md:bottom-24 right-6 z-[75] bg-brand-bg border border-brand-red text-brand-red w-14 h-14 rounded-full flex items-center justify-center shadow-[0_5px_20px_rgb(var(--color-red)/0.4)] hover:bg-brand-red hover:text-white transition-all duration-300 interactive-el group" aria-label="開啟 AI 智能教練">
+        <i class="fa-solid fa-robot text-xl"></i>
+        <span class="absolute -top-1 -right-1 w-3 h-3 bg-brand-red rounded-full animate-ping"></span>
+    </button>
+    <div id="ai-chat-panel" class="fixed bottom-0 right-0 md:bottom-24 md:right-6 z-[120] w-full md:w-[380px] h-[80dvh] md:h-[520px] glass-panel border hairline flex flex-col translate-y-full md:translate-y-4 opacity-0 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:rounded-sm overflow-hidden">
+        <div class="flex items-center justify-between px-5 py-4 border-b hairline bg-brand-bg/60">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-brand-red/15 border border-brand-red/40 flex items-center justify-center text-brand-red"><i class="fa-solid fa-robot"></i></div>
+                <div><div class="text-sm font-bold tracking-widest text-brand-text">智能鯊魚教練</div><div class="text-[10px] text-brand-muted tracking-wider flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> 24小時待命</div></div>
+            </div>
+            <button onclick="toggleAIChat()" class="text-brand-muted hover:text-brand-red text-lg interactive-el w-9 h-9 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="ai-chat-history" class="flex-1 overflow-y-auto p-5 space-y-4 text-sm">
+            <div class="bg-brand-bg/70 border hairline p-3.5 rounded-sm rounded-tl-none max-w-[90%] text-brand-text leading-relaxed">嘿，未來的戰士！🦈 我是 HCF 智能鯊魚教練。<br>費用、新手、地點、裝備…任何問題都可以直接問我，或直接領取 $400 體驗！</div>
+        </div>
+        <div class="px-5 py-3 border-t hairline bg-brand-bg/60">
+            <div class="flex flex-wrap gap-2 mb-3">
+                <button onclick="aiAsk('費用怎麼算？')" class="text-[11px] tracking-wider border hairline text-brand-muted px-3 py-1.5 hover:border-brand-red hover:text-brand-red transition-colors interactive-el">💰 費用</button>
+                <button onclick="aiAsk('新手適合嗎？')" class="text-[11px] tracking-wider border hairline text-brand-muted px-3 py-1.5 hover:border-brand-red hover:text-brand-red transition-colors interactive-el">🔰 新手</button>
+                <button onclick="aiAsk('地點在哪？')" class="text-[11px] tracking-wider border hairline text-brand-muted px-3 py-1.5 hover:border-brand-red hover:text-brand-red transition-colors interactive-el">📍 地點</button>
+                <button onclick="aiAsk('需要帶裝備嗎？')" class="text-[11px] tracking-wider border hairline text-brand-muted px-3 py-1.5 hover:border-brand-red hover:text-brand-red transition-colors interactive-el">🥊 裝備</button>
+            </div>
+            <div class="flex gap-2">
+                <input id="ai-input" type="text" placeholder="輸入你的問題…" onkeydown="if(event.key==='Enter')aiSend()" class="flex-1 bg-brand-bg border hairline px-4 py-2.5 text-sm text-brand-text placeholder:text-brand-muted/60 focus:border-brand-red outline-none transition-colors">
+                <button onclick="aiSend()" class="bg-brand-red text-white w-11 flex items-center justify-center hover:bg-brand-text hover:text-brand-bg transition-colors interactive-el"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 預約 Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-[130] flex items-center justify-center px-4 opacity-0 pointer-events-none transition-opacity duration-400">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeBooking()"></div>
+        <div class="relative glass-panel border hairline w-full max-w-md p-8 md:rounded-sm transform scale-95 transition-transform duration-400" id="booking-card">
+            <button onclick="closeBooking()" class="absolute top-5 right-5 text-brand-muted hover:text-brand-red text-lg interactive-el"><i class="fa-solid fa-xmark"></i></button>
+            <span class="text-brand-red text-[10px] font-mono tracking-[0.4em] border border-brand-red px-3 py-1.5 inline-block mb-5">QUICK BOOKING / 快速預約</span>
+            <h3 class="text-2xl font-black tracking-widest text-brand-text mb-1">啟動你的第一戰</h3>
+            <p class="text-xs text-brand-muted tracking-wider mb-6">填寫後我們將透過 LINE 與你確認時段。</p>
+            <div class="space-y-4">
+                <div><label class="text-[11px] tracking-widest text-brand-muted block mb-2">選擇方案</label>
+                    <select id="bk-course" class="w-full bg-brand-bg border hairline px-4 py-3 text-sm text-brand-text focus:border-brand-red outline-none">
+                        <option value="mt-trial" data-price="400">泰拳團課體驗 — $400</option>
+                        <option value="kb-trial" data-price="400">踢拳團課體驗 — $400</option>
+                        <option value="sd-trial" data-price="400">散打團課體驗 — $400</option>
+                        <option value="sc-trial" data-price="400">肌力體能體驗 — $400</option>
+                        <option value="private-1" data-price="1400">私教體驗 1 堂 — $1,400</option>
+                        <option value="private-2" data-price="2400">私教體驗 2 堂 — $2,400</option>
+                    </select></div>
+                <div><label class="text-[11px] tracking-widest text-brand-muted block mb-2">你的稱呼</label><input id="bk-name" type="text" placeholder="戰士名" class="w-full bg-brand-bg border hairline px-4 py-3 text-sm text-brand-text placeholder:text-brand-muted/60 focus:border-brand-red outline-none"></div>
+                <div><label class="text-[11px] tracking-widest text-brand-muted block mb-2">聯絡電話</label><input id="bk-phone" type="tel" placeholder="09xx-xxx-xxx" class="w-full bg-brand-bg border hairline px-4 py-3 text-sm text-brand-text placeholder:text-brand-muted/60 focus:border-brand-red outline-none"></div>
+                <button onclick="submitBooking()" id="bk-submit" class="w-full bg-brand-red text-white py-3.5 text-xs tracking-[0.2em] font-bold hover:bg-brand-text hover:text-brand-bg transition-colors duration-300 shadow-[0_0_20px_rgb(var(--color-red)/0.3)] interactive-el">送出預約 →</button>
+                <p id="bk-status" class="text-center text-xs tracking-wider text-brand-muted min-h-[1rem]"></p>
+                <p class="text-center text-[11px] text-brand-muted tracking-wider">或直接 <a href="https://lin.ee/7lidUv0" target="_blank" rel="noopener" class="text-brand-red hover:underline interactive-el">LINE 真人客服</a></p>
+            </div>
+        </div>
     </div>
 
     <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            html.classList.toggle('light-mode');
-            const isLight = html.classList.contains('light-mode');
-            localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            
-            const icon = document.querySelector('.theme-icon');
-            if(isLight) {
-                icon.classList.remove('fa-circle-half-stroke');
-                icon.classList.add('fa-moon');
-            } else {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-circle-half-stroke');
-            }
-        }
-        if (document.documentElement.classList.contains('light-mode')) {
-            document.querySelector('.theme-icon').classList.replace('fa-circle-half-stroke', 'fa-moon');
-        }
+        // ===== 主題切換 =====
+        function toggleTheme(){const h=document.documentElement;h.classList.toggle('light-mode');const l=h.classList.contains('light-mode');localStorage.setItem('theme',l?'light':'dark');const i=document.querySelector('.theme-icon');if(i){i.classList.toggle('fa-circle-half-stroke',!l);i.classList.toggle('fa-moon',l);}}
+        if(document.documentElement.classList.contains('light-mode')){const i=document.querySelector('.theme-icon');if(i)i.classList.replace('fa-circle-half-stroke','fa-moon');}
 
-        const navDrawer = document.getElementById('nav-drawer');
-        const backdrop = document.getElementById('drawer-backdrop');
+        // ===== 抽屜 =====
+        const navDrawer=document.getElementById('nav-drawer');const backdrop=document.getElementById('drawer-backdrop');
+        function toggleNavDrawer(){if(navDrawer.classList.contains('translate-x-full')){navDrawer.classList.remove('translate-x-full');showBackdrop();}else{closeAllDrawers();}}
+        function showBackdrop(){backdrop.classList.remove('pointer-events-none','opacity-0');backdrop.classList.add('opacity-100');document.body.style.overflow='hidden';}
+        function closeAllDrawers(){if(navDrawer)navDrawer.classList.add('translate-x-full');backdrop.classList.remove('opacity-100');backdrop.classList.add('opacity-0','pointer-events-none');document.body.style.overflow='';}
 
-        function toggleNavDrawer() {
-            if (navDrawer.classList.contains('translate-x-full')) { navDrawer.classList.remove('translate-x-full'); showBackdrop(); } else { closeAllDrawers(); }
-        }
-        function showBackdrop() { backdrop.classList.remove('pointer-events-none', 'opacity-0'); backdrop.classList.add('opacity-100'); document.body.style.overflow = 'hidden'; }
-        function closeAllDrawers() { navDrawer.classList.add('translate-x-full'); backdrop.classList.remove('opacity-100'); backdrop.classList.add('opacity-0', 'pointer-events-none'); document.body.style.overflow = ''; }
-
-        if (window.matchMedia("(pointer: fine)").matches) {
-            const cursorDot = document.getElementById('cursor-dot');
-            const cursorRing = document.getElementById('cursor-ring');
-            
-            let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
-            let dotX = mouseX; let dotY = mouseY;
-            let ringX = mouseX; let ringY = mouseY;
-
-            window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
-
-            function animateCursor() {
-                dotX += (mouseX - dotX) * 0.4; dotY += (mouseY - dotY) * 0.4;
-                ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15;
-                cursorDot.style.transform = `translate3d(calc(${dotX}px - 50%), calc(${dotY}px - 50%), 0)`;
-                cursorRing.style.transform = `translate3d(calc(${ringX}px - 50%), calc(${ringY}px - 50%), 0)`;
-                requestAnimationFrame(animateCursor);
-            }
-            requestAnimationFrame(animateCursor);
-
-            document.querySelectorAll('.interactive-el').forEach(el => {
-                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-            });
-
-            document.querySelectorAll('.magnetic-btn').forEach(btn => {
-                btn.addEventListener('mousemove', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2; const y = e.clientY - rect.top - rect.height / 2;
-                    this.style.transform = `translate3d(${x * 0.3}px, ${y * 0.3}px, 0)`;
-                });
-                btn.addEventListener('mouseleave', function() { this.style.transform = 'translate3d(0px, 0px, 0)'; });
-            });
+        // ===== 自訂游標 + 磁吸按鈕 =====
+        if(window.matchMedia("(pointer: fine)").matches){
+            const d=document.getElementById('cursor-dot'),r=document.getElementById('cursor-ring');
+            let mx=innerWidth/2,my=innerHeight/2,dx=mx,dy=my,rx=mx,ry=my;
+            addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+            (function loop(){dx+=(mx-dx)*.4;dy+=(my-dy)*.4;rx+=(mx-rx)*.15;ry+=(my-ry)*.15;if(d)d.style.transform=`translate3d(calc(${dx}px - 50%),calc(${dy}px - 50%),0)`;if(r)r.style.transform=`translate3d(calc(${rx}px - 50%),calc(${ry}px - 50%),0)`;requestAnimationFrame(loop);})();
+            document.querySelectorAll('.interactive-el').forEach(e=>{e.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));e.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));});
+            document.querySelectorAll('.magnetic-btn').forEach(b=>{b.addEventListener('mousemove',function(e){const t=this.getBoundingClientRect();this.style.transform=`translate3d(${(e.clientX-t.left-t.width/2)*.3}px,${(e.clientY-t.top-t.height/2)*.3}px,0)`;});b.addEventListener('mouseleave',function(){this.style.transform='translate3d(0,0,0)';});});
         }
 
-        const nav = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { nav.classList.add('py-3'); nav.classList.remove('py-4'); } 
-            else { nav.classList.remove('py-3'); nav.classList.add('py-4'); }
-        }, { passive: true });
+        // ===== 導覽列縮放 =====
+        const nav=document.getElementById('navbar');addEventListener('scroll',()=>{if(scrollY>50){nav.classList.add('py-3');nav.classList.remove('py-4');}else{nav.classList.remove('py-3');nav.classList.add('py-4');}},{passive:true});
 
-        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        // ===== 進場動畫 =====
+        const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.15,rootMargin:"0px 0px -50px 0px"});
+        document.querySelectorAll('.fade-up').forEach(e=>io.observe(e));
+
+        // ===== 數據收集 (analytics beacon) =====
+        function hcfTrack(type, meta){
+            try{
+                const body=JSON.stringify({type,path:location.pathname,ts:Date.now(),meta:meta||null});
+                fetch('/.netlify/functions/track-event',{method:'POST',headers:{'Content-Type':'application/json'},body,keepalive:true}).catch(()=>{});
+                // local mirror so the admin demo dashboard works without a backend
+                const k='hcf_events';const arr=JSON.parse(localStorage.getItem(k)||'[]');arr.push({type,path:location.pathname,ts:Date.now(),meta:meta||null});localStorage.setItem(k,JSON.stringify(arr.slice(-500)));
+            }catch(e){}
+        }
+        hcfTrack('pageview');
+
+        // ===== AI 智能教練 =====
+        const aiPanel=document.getElementById('ai-chat-panel');let aiOpen=false;
+        function toggleAIChat(){aiOpen=!aiOpen;if(aiOpen){aiPanel.classList.remove('translate-y-full','md:translate-y-4','opacity-0','pointer-events-none');aiPanel.classList.add('opacity-100');hcfTrack('ai_open');setTimeout(()=>document.getElementById('ai-input')?.focus(),300);}else{aiPanel.classList.add('opacity-0','pointer-events-none','md:translate-y-4','translate-y-full');aiPanel.classList.remove('opacity-100');}}
+        function aiAppend(html,who){const box=document.getElementById('ai-chat-history');const w=document.createElement('div');if(who==='user'){w.className='flex justify-end';w.innerHTML='<div class="bg-brand-red text-white p-3 rounded-sm rounded-tr-none max-w-[85%] leading-relaxed">'+html+'</div>';}else{w.innerHTML='<div class="bg-brand-bg/70 border hairline p-3.5 rounded-sm rounded-tl-none max-w-[90%] text-brand-text leading-relaxed">'+html+'</div>';}box.appendChild(w);box.scrollTop=box.scrollHeight;return w;}
+        function aiAsk(q){document.getElementById('ai-input').value=q;aiSend();}
+        async function aiSend(){const inp=document.getElementById('ai-input');const q=inp.value.trim();if(!q)return;inp.value='';aiAppend(q,'user');hcfTrack('ai_message',{q});const l=aiAppend('<span class="text-brand-muted">🦈 鯊魚教練思考中…</span>','bot');try{const res=await fetch('/.netlify/functions/chat-claude',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q})});const data=await res.json();const reply=(data.reply||'我不太確定，建議直接問真人客服！').replace(/\n/g,'<br>');l.querySelector('div').innerHTML=reply+'<div class="mt-3 pt-3 border-t hairline"><a href="javascript:void(0)" onclick="closeAndBook()" class="text-brand-red text-[11px] font-bold tracking-widest hover:underline">⚡ 直接預約 $400 體驗 →</a></div>';}catch(e){l.querySelector('div').innerHTML='🦈 教練去打沙包了！直接找真人客服更快：<br><a href="https://lin.ee/7lidUv0" target="_blank" rel="noopener" class="text-brand-red hover:underline">LINE 官方帳號</a> ・ 0925-571-225';}}
+        function closeAndBook(){toggleAIChat();openBooking('mt-trial');}
+
+        // ===== 預約 Modal =====
+        const bkModal=document.getElementById('booking-modal'),bkCard=document.getElementById('booking-card');
+        function openBooking(c){if(c){const s=document.getElementById('bk-course');if([...s.options].some(o=>o.value===c))s.value=c;}bkModal.classList.remove('opacity-0','pointer-events-none');bkModal.classList.add('opacity-100');bkCard.classList.remove('scale-95');bkCard.classList.add('scale-100');document.body.style.overflow='hidden';hcfTrack('booking_open',{course:c||'default'});}
+        function closeBooking(){bkModal.classList.add('opacity-0','pointer-events-none');bkModal.classList.remove('opacity-100');bkCard.classList.add('scale-95');bkCard.classList.remove('scale-100');document.body.style.overflow='';}
+        async function submitBooking(){const sel=document.getElementById('bk-course');const course=sel.options[sel.selectedIndex].text;const slotId=sel.value;const price=parseInt(sel.options[sel.selectedIndex].dataset.price||'0',10);const name=document.getElementById('bk-name').value.trim();const phone=document.getElementById('bk-phone').value.trim();const st=document.getElementById('bk-status');const btn=document.getElementById('bk-submit');if(!name||!phone){st.textContent='請填寫稱呼與電話 🥊';st.className='text-center text-xs tracking-wider text-brand-red';return;}btn.disabled=true;btn.textContent='送出中…';st.textContent='';try{const res=await fetch('/.netlify/functions/bookings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({slotId,course,name,phone,price,source:'website'})});if(!res.ok)throw new Error();st.innerHTML='✅ 預約已送出！我們會盡快用 LINE 與你確認。';st.className='text-center text-xs tracking-wider text-green-500';hcfTrack('booking_submit',{course,price});setTimeout(()=>{closeBooking();btn.disabled=false;btn.textContent='送出預約 →';document.getElementById('bk-name').value='';document.getElementById('bk-phone').value='';st.textContent='';},2500);}catch(e){st.innerHTML='⚠️ 系統忙線，請直接 <a href="https://lin.ee/7lidUv0" target="_blank" rel="noopener" class="text-brand-red underline">LINE 預約</a>';st.className='text-center text-xs tracking-wider text-brand-red';btn.disabled=false;btn.textContent='送出預約 →';}}
+        document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeBooking();if(aiOpen)toggleAIChat();}});
     </script>
-    <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}</script>
+    <script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}</script>
 </body>
 </html>
